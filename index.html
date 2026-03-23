@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -157,6 +158,8 @@ textarea.paste-area{width:100%;background:#112035;border:1px solid #182a40;borde
   <button class="tab" onclick="switchTab('records')">📋 기록 보기</button>
 </div>
 
+<!-- ── 입력 탭 ── -->
+
 <div id="tab-input">
   <div class="sec">사용법</div>
   <div class="guide-box">
@@ -211,7 +214,10 @@ textarea.paste-area{width:100%;background:#112035;border:1px solid #182a40;borde
   </div>
 </div>
 
+<!-- ── 기록 탭 ── -->
+
 <div id="tab-records" style="display:none">
+  <!-- 전체 통계 -->
   <div class="stats-grid">
     <div class="stat-c"><div class="stat-v" style="color:#fbbf24" id="s-cnt">-</div><div class="stat-l">체크 횟수</div></div>
     <div class="stat-c"><div class="stat-v" style="color:#00e5ff" id="s-plus">-</div><div class="stat-l">PLUS 증가</div></div>
@@ -219,34 +225,46 @@ textarea.paste-area{width:100%;background:#112035;border:1px solid #182a40;borde
     <div class="stat-c"><div class="stat-v" style="color:#34d399" id="s-div">-</div><div class="stat-l">배당 증가</div></div>
   </div>
 
+  <!-- 월 선택 -->
+
   <div class="sec">월별 보기</div>
   <div class="month-scroll" id="month-scroll"></div>
+
+  <!-- ── 전체 선택 시: 전역 달성도 ── -->
 
   <div id="section-all">
     <div class="sec">🎖️ 전역까지 달성도</div>
     <div class="discharge-section" id="discharge-section">
       <div class="no-goal">체크 후 🎯 GOAL:: 코드를 붙여넣으면 달성도가 표시돼요</div>
     </div>
+    <!-- 월별 증가량 차트 -->
     <div class="sec">월별 증가량</div>
     <div id="monthly-charts"></div>
+    <!-- 전체 기록 -->
     <div class="sec">전체 기록</div>
     <div id="log-list-all"></div>
     <div class="empty-state" id="empty-all" style="display:none">아직 저장된 기록이 없어요.</div>
   </div>
+
+  <!-- ── 월 선택 시: 월별 달성도 + 기록 ── -->
 
   <div id="section-month" style="display:none">
     <div class="sec">📅 <span id="month-section-title">-</span> 달성도</div>
     <div class="month-goal-card show" id="month-goal-card">
       <div class="no-goal">체크 후 🎯 GOAL:: 코드를 붙여넣으면 달성도가 표시돼요</div>
     </div>
+    <!-- 월 내 차트 -->
     <div class="chart-box" id="month-chart-box" style="display:none">
       <div class="chart-title" style="color:#e2e8f0">📊 이 달 수량 변화</div>
       <canvas id="month-inner-chart" height="140"></canvas>
     </div>
+    <!-- 월 기록 -->
     <div class="sec">기록 목록</div>
     <div id="log-list-month"></div>
     <div class="empty-state" id="empty-month" style="display:none">이 달 기록이 없어요.</div>
   </div>
+
+  <!-- 백업 -->
 
   <div class="sec">백업 / 복원</div>
   <div class="backup-panel">
@@ -270,12 +288,11 @@ const GKEY = 'invest-goals-v1';
 let records = [];
 let goals = null;
 let charts = {};
-let qsParsed = null; // {save, goal} 객체
+let qsParsed = null;
 let selectedMonth = 'all';
 
 document.getElementById('inp-date').value = new Date().toISOString().slice(0,10);
 
-// ── SAVE:: + GOAL:: 동시 파싱 ──
 function onQSInput() {
 const raw = document.getElementById('qs-input').value.trim();
 const btn = document.getElementById('btn-qs');
@@ -286,7 +303,6 @@ preview.style.display = 'none'; goalPrev.style.display = 'none';
 
 const result = {};
 
-// SAVE:: 파싱
 const saveMatch = raw.match(/SAVE::({[^\n]+})/);
 if (saveMatch) {
 try {
@@ -303,7 +319,6 @@ preview.style.display = 'grid';
 } catch(e) {}
 }
 
-// GOAL:: 파싱
 const goalMatch = raw.match(/GOAL::({[^\n]+})/);
 if (goalMatch) {
 try {
@@ -419,8 +434,6 @@ persist();
 }
 }
 
-// ── 프로그레스 바 색상/라벨 ──
-// isFuture=true 이면 경고 없이 진행률 색상만 표시
 function pctColor(pct, isFuture){
 if(isFuture){
 if(pct>=80) return '#00e5ff';
@@ -433,14 +446,13 @@ if(pct>=85)  return '#fbbf24';
 return '#fb7185';
 }
 function pctLabel(pct, isFuture){
-if(isFuture) return '';  // 미래 목표는 라벨 없음
+if(isFuture) return '';
 if(pct>=105) return '초과 달성 🚀';
 if(pct>=95)  return '정상 궤도 ✅';
 if(pct>=85)  return '소폭 미달 ⚠️';
 return '계획 수정 필요 ❗';
 }
 
-// ── 전역 달성도 렌더 ──
 function renderDischarge(){
 const sec = document.getElementById('discharge-section');
 const latest = records.length ? records[records.length-1] : null;
@@ -458,7 +470,6 @@ const pPct=Math.round(latest.plusSh/ms.plusSh*100);
 const kPct=Math.round(latest.kodexSh/ms.kodexSh*100);
 const dPct=Math.round(curDiv/ms.div*100);
 const avg=Math.round((pPct+kPct+dPct)/3);
-// 미래 목표 → isFuture=true (경고 없음)
 milestonesHtml+=` <div style="background:#112035;border-radius:10px;padding:12px;margin-bottom:10px;"> <div style="display:flex;justify-content:space-between;margin-bottom:8px;"> <span style="font-size:11px;font-weight:700;color:#e2e8f0;">${ms.label}</span> <span style="font-size:10px;font-family:'Space Mono',monospace;color:#4a6080;">${avg}% 진행</span> </div> <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;"> ${mkMini('PLUS','#00e5ff',latest.plusSh,ms.plusSh,'주',pPct,true)} ${mkMini('KODEX','#a78bfa',latest.kodexSh,ms.kodexSh,'주',kPct,true)} ${mkMini('배당','#34d399',curDiv.toFixed(1),ms.div,'만',dPct,true)} </div> </div>`;
 });
 }
@@ -478,11 +489,9 @@ return `<div style="background:#0c1525;border-radius:8px;padding:8px;">
 <div style="width:${w}%;height:100%;background:${c};border-radius:3px;"></div>
 </div>
 <div style="font-size:9px;color:${c};font-family:'Space Mono',monospace;margin-top:2px;">${pct}% ${lbl}</div>
-
-  </div>`;
+</div>`;
 }
 
-// ── 월별 달성도 렌더 ──
 function renderMonthGoal(ym){
 const card = document.getElementById('month-goal-card');
 const monthRecs = records.filter(r=>r.date.startsWith(ym));
@@ -511,11 +520,9 @@ return `<div class="mg-item">
 <div class="mg-goal">목표 ${goal}${unit}</div>
 <div class="mg-bar-wrap"><div class="mg-bar" style="width:${w}%;background:${c};"></div></div>
 <div class="mg-pct" style="color:${c}">${pct}% ${lbl}</div>
-
-  </div>`;
+</div>`;
 }
 
-// ── 월 선택기 ──
 function getMonths(){return [...new Set(records.map(r=>r.date.slice(0,7)))].sort();}
 
 function renderMonthSelector(){
@@ -540,7 +547,6 @@ document.getElementById('section-all').style.display=which==='all'?'block':'none
 document.getElementById('section-month').style.display=which==='month'?'block':'none';
 }
 
-// ── 월별 섹션 렌더 ──
 function renderMonthSection(ym){
 document.getElementById('month-section-title').textContent=ym.slice(5)+'월';
 renderMonthGoal(ym);
@@ -566,7 +572,6 @@ scales:{x:{grid:{color:'#182a40'},ticks:{color:'#4a6080',font:{size:9}}},y:{grid
 });
 }
 
-// ── 월별 증가량 차트 (전체 탭) ──
 function renderMonthlyCharts(){
 const wrap=document.getElementById('monthly-charts');
 ['mc-shares','mc-div'].forEach(k=>{try{if(charts[k])charts[k].destroy();}catch(e){}});
@@ -610,7 +615,6 @@ scales:{x:{grid:{color:'#182a40'},ticks:{color:'#4a6080',font:{size:10}}},y:{gri
 });
 }
 
-// ── 로그 리스트 ──
 function renderLogList(listEl,emptyEl,filterYm){
 let filtered=filterYm?records.filter(r=>r.date.startsWith(filterYm)):[...records];
 if(!filtered.length){listEl.innerHTML='';emptyEl.style.display='block';return;}
@@ -631,7 +635,6 @@ return `<div class="log-item ${isLatest?'latest':''}"> <button class="log-del" o
 }).join('');
 }
 
-// ── 전체 렌더 ──
 function renderAll(){
 const n=records.length;
 document.getElementById('s-cnt').textContent=n+'회';
@@ -665,5 +668,6 @@ function toast(msg,isErr=false){const t=document.getElementById('toast');t.textC
 loadData();
 document.getElementById('inp-date').value=new Date().toISOString().slice(0,10);
 </script>
+
 </body>
 </html>
