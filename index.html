@@ -9,10 +9,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#070d18;color:#e2e8f0;font-family:'Noto Sans KR',sans-serif;min-height:100vh;padding:0 0 80px;}
-body::before{content:'';position:fixed;inset:0;
-  background:radial-gradient(ellipse 60% 50% at 10% 10%,rgba(0,229,255,.06) 0%,transparent 50%),
-    radial-gradient(ellipse 50% 40% at 90% 90%,rgba(167,139,250,.05) 0%,transparent 50%);
-  pointer-events:none;z-index:0;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 60% 50% at 10% 10%,rgba(0,229,255,.06) 0%,transparent 50%),radial-gradient(ellipse 50% 40% at 90% 90%,rgba(167,139,250,.05) 0%,transparent 50%);pointer-events:none;z-index:0;}
 .wrap{max-width:480px;margin:0 auto;position:relative;z-index:1;padding:20px 16px;}
 
 .hdr{text-align:center;margin-bottom:24px;}
@@ -23,47 +20,81 @@ body::before{content:'';position:fixed;inset:0;
 .hdr h1{font-size:22px;font-weight:900;line-height:1.3;}
 .hdr h1 em{color:#00e5ff;font-style:normal;}
 
+/* 메인 탭 */
 .tabs{display:flex;background:#0c1525;border:1px solid #182a40;border-radius:12px;padding:4px;gap:4px;margin-bottom:20px;}
-.tab{flex:1;padding:9px;border-radius:9px;border:none;background:transparent;color:#4a6080;font-size:12px;font-weight:700;cursor:pointer;transition:.2s;font-family:‘Noto Sans KR’,sans-serif;}
+.tab{flex:1;padding:9px;border-radius:9px;border:none;background:transparent;color:#4a6080;font-size:12px;font-weight:700;cursor:pointer;font-family:‘Noto Sans KR’,sans-serif;}
 .tab.active{background:#112035;color:#00e5ff;}
 
 .sec{font-size:9px;font-weight:700;letter-spacing:3px;color:#4a6080;text-transform:uppercase;font-family:‘Space Mono’,monospace;display:flex;align-items:center;gap:8px;margin-bottom:12px;}
 .sec::after{content:’’;flex:1;height:1px;background:#182a40;}
 
+/* 입력 */
 .guide-box{background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.2);border-radius:12px;padding:14px;margin-bottom:18px;}
 .guide-step{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;}
 .guide-step:last-child{margin-bottom:0;}
 .guide-num{width:20px;height:20px;border-radius:50%;background:#00e5ff;color:#000;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 .guide-txt{font-size:11px;color:#e2e8f0;line-height:1.6;}
 .guide-txt b{color:#00e5ff;}
-
 .form-card{background:#0c1525;border:1px solid #182a40;border-radius:14px;padding:16px;margin-bottom:16px;}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
 .form-item label{display:block;font-size:9px;color:#4a6080;font-family:‘Space Mono’,monospace;margin-bottom:5px;letter-spacing:1px;text-transform:uppercase;}
-.form-item input{width:100%;background:#112035;border:1px solid #182a40;border-radius:8px;padding:10px 12px;color:#e2e8f0;font-size:15px;font-family:‘Space Mono’,monospace;outline:none;transition:.2s;-webkit-appearance:none;}
+.form-item input{width:100%;background:#112035;border:1px solid #182a40;border-radius:8px;padding:10px 12px;color:#e2e8f0;font-size:15px;font-family:‘Space Mono’,monospace;outline:none;-webkit-appearance:none;}
 .form-item input:focus{border-color:#00e5ff;}
 .form-item.span2{grid-column:1/-1;}
-
 .preview-card{background:#112035;border:1px solid #182a40;border-radius:10px;padding:12px;margin-bottom:14px;display:none;}
 .preview-card.show{display:block;}
 .preview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
 .pv-item .pv-l{font-size:9px;color:#4a6080;}
 .pv-item .pv-v{font-size:14px;font-weight:700;font-family:‘Space Mono’,monospace;}
-
-.btn-primary{width:100%;padding:13px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:‘Noto Sans KR’,sans-serif;background:linear-gradient(135deg,#0369a1,#00e5ff);color:#000;transition:.2s;margin-bottom:8px;}
+.btn-primary{width:100%;padding:13px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:‘Noto Sans KR’,sans-serif;background:linear-gradient(135deg,#0369a1,#00e5ff);color:#000;margin-bottom:8px;}
 .btn-secondary{width:100%;padding:11px;border-radius:10px;border:1px solid #182a40;cursor:pointer;font-size:12px;font-weight:700;font-family:‘Noto Sans KR’,sans-serif;background:transparent;color:#4a6080;}
+.quick-save-card{background:linear-gradient(135deg,#0a1f10,#0c1a28);border:1px solid rgba(52,211,153,.3);border-radius:14px;padding:16px;margin-bottom:16px;}
+.qs-label{font-size:10px;color:#34d399;font-family:‘Space Mono’,monospace;margin-bottom:8px;}
+.qs-textarea{width:100%;background:rgba(0,0,0,.3);border:1px solid rgba(52,211,153,.2);border-radius:8px;padding:10px 12px;color:#e2e8f0;font-size:11px;font-family:‘Space Mono’,monospace;height:60px;resize:none;outline:none;line-height:1.5;}
+.qs-preview{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:8px;padding:10px 12px;margin:8px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+.qs-preview .qp-l{font-size:9px;color:#4a6080;}
+.qs-preview .qp-v{font-size:13px;font-weight:700;font-family:‘Space Mono’,monospace;}
+.btn-qs{width:100%;padding:12px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:‘Noto Sans KR’,sans-serif;margin-top:6px;}
+.btn-qs:not(:disabled){background:linear-gradient(135deg,#065f46,#34d399);color:#000;}
+.btn-qs:disabled{background:#112035;color:#4a6080;cursor:not-allowed;}
 
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px;}
+/* 전체 통계 */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px;}
 .stat-c{background:#0c1525;border:1px solid #182a40;border-radius:10px;padding:10px;text-align:center;}
 .stat-v{font-size:14px;font-weight:700;font-family:‘Space Mono’,monospace;}
 .stat-l{font-size:8px;color:#4a6080;margin-top:2px;}
 
-/* 종목별 개별 차트 */
-.chart-row{margin-bottom:12px;}
-.chart-box{background:#0c1525;border:1px solid #182a40;border-radius:14px;padding:14px;}
+/* 월 선택 탭 */
+.month-selector{margin-bottom:16px;}
+.month-scroll{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;}
+.month-scroll::-webkit-scrollbar{display:none;}
+.month-btn{flex-shrink:0;padding:6px 14px;border-radius:20px;border:1px solid #182a40;background:transparent;color:#4a6080;font-size:11px;font-weight:700;cursor:pointer;font-family:‘Space Mono’,monospace;white-space:nowrap;}
+.month-btn.active{background:rgba(0,229,255,.15);border-color:#00e5ff;color:#00e5ff;}
+.month-btn.all-btn{background:rgba(167,139,250,.1);border-color:#a78bfa;color:#a78bfa;}
+.month-btn.all-btn.active{background:rgba(167,139,250,.25);}
+
+/* 월별 증가량 차트 */
+.monthly-charts{margin-bottom:16px;}
+.chart-box{background:#0c1525;border:1px solid #182a40;border-radius:14px;padding:14px;margin-bottom:10px;}
 .chart-title{font-size:11px;font-weight:700;font-family:‘Space Mono’,monospace;margin-bottom:10px;letter-spacing:1px;}
 canvas{width:100%!important;}
 
+/* 월별 상세 카드 (클릭 시 표시) */
+.month-detail{background:#0c1525;border:1px solid rgba(0,229,255,.2);border-radius:14px;padding:16px;margin-bottom:16px;display:none;}
+.month-detail.show{display:block;animation:fadeUp .3s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.md-title{font-size:13px;font-weight:700;color:#00e5ff;font-family:‘Space Mono’,monospace;margin-bottom:14px;}
+.md-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
+.md-item{background:#112035;border-radius:10px;padding:12px;}
+.md-label{font-size:9px;color:#4a6080;letter-spacing:1px;margin-bottom:6px;font-family:‘Space Mono’,monospace;}
+.md-val{font-size:18px;font-weight:900;font-family:‘Space Mono’,monospace;}
+.md-delta{font-size:11px;margin-top:3px;}
+.md-delta.up{color:#34d399;}
+.md-delta.dn{color:#fb7185;}
+.md-delta.neu{color:#4a6080;}
+.close-btn{width:100%;padding:9px;border-radius:8px;border:1px solid #182a40;background:transparent;color:#4a6080;font-size:11px;cursor:pointer;font-family:‘Noto Sans KR’,sans-serif;}
+
+/* 전체 기록 로그 */
 .log-item{background:#0c1525;border:1px solid #182a40;border-radius:12px;padding:14px;margin-bottom:8px;position:relative;}
 .log-item.latest{border-color:rgba(0,229,255,.35);}
 .log-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
@@ -75,16 +106,13 @@ canvas{width:100%!important;}
 .log-detail{font-size:10px;color:#4a6080;margin-top:6px;font-family:‘Space Mono’,monospace;}
 .log-delta{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px;padding-top:7px;border-top:1px solid #182a40;}
 .ld{font-size:10px;}
-/* 수량: 종목색과 동일 */
-.ld-plus-up{color:#00e5ff;} .ld-plus-dn{color:#0ea5e9;} .ld-plus-neu{color:#4a6080;}
-.ld-kodex-up{color:#a78bfa;} .ld-kodex-dn{color:#7c3aed;} .ld-kodex-neu{color:#4a6080;}
-/* 배당: 초록 */
-.ld-div-up{color:#34d399;} .ld-div-dn{color:#f87171;} .ld-div-neu{color:#4a6080;}
-/* 자산: 노랑 */
-.ld-tot-up{color:#fbbf24;} .ld-tot-dn{color:#fb7185;} .ld-tot-neu{color:#4a6080;}
-
+.ld-plus-up{color:#00e5ff;}.ld-plus-dn{color:#0ea5e9;}.ld-plus-neu{color:#4a6080;}
+.ld-kodex-up{color:#a78bfa;}.ld-kodex-dn{color:#7c3aed;}.ld-kodex-neu{color:#4a6080;}
+.ld-div-up{color:#34d399;}.ld-div-dn{color:#f87171;}.ld-div-neu{color:#4a6080;}
+.ld-tot-up{color:#fbbf24;}.ld-tot-dn{color:#fb7185;}.ld-tot-neu{color:#4a6080;}
 .log-del{position:absolute;top:10px;right:12px;background:transparent;border:none;color:#4a6080;cursor:pointer;font-size:13px;}
 
+/* 백업 */
 .backup-panel{background:#0c1525;border:1px solid rgba(251,191,36,.2);border-radius:12px;padding:14px;margin-bottom:16px;}
 .backup-title{font-size:9px;color:#fbbf24;font-weight:700;font-family:‘Space Mono’,monospace;margin-bottom:10px;letter-spacing:2px;}
 .backup-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
@@ -93,16 +121,6 @@ canvas{width:100%!important;}
 textarea.paste-area{width:100%;background:#112035;border:1px solid #182a40;border-radius:8px;padding:10px;color:#e2e8f0;font-size:10px;font-family:‘Space Mono’,monospace;height:56px;resize:none;outline:none;margin-bottom:6px;}
 .btn-restore{width:100%;background:transparent;border:1px solid rgba(251,191,36,.3);color:#fbbf24;font-size:11px;font-weight:700;padding:8px;border-radius:8px;cursor:pointer;font-family:‘Noto Sans KR’,sans-serif;}
 .btn-clr{width:100%;background:transparent;border:1px solid rgba(251,100,100,.2);color:#fb7185;font-size:11px;padding:9px;border-radius:8px;cursor:pointer;margin-top:8px;font-family:‘Noto Sans KR’,sans-serif;}
-
-.quick-save-card{background:linear-gradient(135deg,#0a1f10,#0c1a28);border:1px solid rgba(52,211,153,.3);border-radius:14px;padding:16px;margin-bottom:16px;}
-.qs-label{font-size:10px;color:#34d399;font-family:‘Space Mono’,monospace;margin-bottom:8px;}
-.qs-textarea{width:100%;background:rgba(0,0,0,.3);border:1px solid rgba(52,211,153,.2);border-radius:8px;padding:10px 12px;color:#e2e8f0;font-size:11px;font-family:‘Space Mono’,monospace;height:60px;resize:none;outline:none;line-height:1.5;}
-.qs-preview{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:8px;padding:10px 12px;margin:8px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
-.qs-preview .qp-item .qp-l{font-size:9px;color:#4a6080;}
-.qs-preview .qp-item .qp-v{font-size:13px;font-weight:700;font-family:‘Space Mono’,monospace;}
-.btn-qs{width:100%;padding:12px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:‘Noto Sans KR’,sans-serif;margin-top:6px;}
-.btn-qs:not(:disabled){background:linear-gradient(135deg,#065f46,#34d399);color:#000;}
-.btn-qs:disabled{background:#112035;color:#4a6080;cursor:not-allowed;}
 
 .empty-state{text-align:center;padding:40px 20px;color:#4a6080;font-size:12px;line-height:2;}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(70px);font-size:12px;font-weight:700;padding:10px 22px;border-radius:20px;opacity:0;transition:.3s;z-index:999;color:#000;white-space:nowrap;}
@@ -136,12 +154,12 @@ textarea.paste-area{width:100%;background:#112035;border:1px solid #182a40;borde
   <div class="sec">⚡ 빠른 저장</div>
   <div class="quick-save-card">
     <div class="qs-label">📋 앱 저장용 코드를 여기에 붙여넣기</div>
-    <textarea id="qs-input" class="qs-textarea" placeholder='SAVE::{"date":"2026-03-21",...} 형식으로 붙여넣기' oninput="onQSInput()"></textarea>
+    <textarea id="qs-input" class="qs-textarea" placeholder='SAVE::{"date":"2026-03-23",...}' oninput="onQSInput()"></textarea>
     <div id="qs-preview" class="qs-preview" style="display:none">
-      <div class="qp-item"><div class="qp-l">날짜</div><div class="qp-v" style="color:#00e5ff" id="qp-date">-</div></div>
-      <div class="qp-item"><div class="qp-l">PLUS</div><div class="qp-v" style="color:#00e5ff" id="qp-plus">-</div></div>
-      <div class="qp-item"><div class="qp-l">KODEX</div><div class="qp-v" style="color:#a78bfa" id="qp-kodex">-</div></div>
-      <div class="qp-item"><div class="qp-l">월배당</div><div class="qp-v" style="color:#34d399" id="qp-div">-</div></div>
+      <div><div class="qp-l">날짜</div><div class="qp-v" style="color:#00e5ff" id="qp-date">-</div></div>
+      <div><div class="qp-l">PLUS</div><div class="qp-v" style="color:#00e5ff" id="qp-plus">-</div></div>
+      <div><div class="qp-l">KODEX</div><div class="qp-v" style="color:#a78bfa" id="qp-kodex">-</div></div>
+      <div><div class="qp-l">월배당</div><div class="qp-v" style="color:#34d399" id="qp-div">-</div></div>
     </div>
     <button class="btn-qs" id="btn-qs" onclick="quickSave()" disabled>⚡ 바로 저장</button>
   </div>
@@ -156,13 +174,13 @@ textarea.paste-area{width:100%;background:#112035;border:1px solid #182a40;borde
   <div class="form-card">
     <div class="form-grid">
       <div class="form-item span2"><label>날짜</label><input type="date" id="inp-date"></div>
-      <div class="form-item"><label>PLUS 수량</label><input type="number" id="inp-plus-sh" placeholder="214" oninput="updatePreview()"></div>
-      <div class="form-item"><label>PLUS 주가</label><input type="number" id="inp-plus-p" placeholder="9080" oninput="updatePreview()"></div>
-      <div class="form-item"><label>KODEX 수량</label><input type="number" id="inp-kodex-sh" placeholder="41" oninput="updatePreview()"></div>
-      <div class="form-item"><label>KODEX 주가</label><input type="number" id="inp-kodex-p" placeholder="18035" oninput="updatePreview()"></div>
+      <div class="form-item"><label>PLUS 수량</label><input type="number" id="inp-plus-sh" placeholder="248" oninput="updatePreview()"></div>
+      <div class="form-item"><label>PLUS 주가</label><input type="number" id="inp-plus-p" placeholder="8640" oninput="updatePreview()"></div>
+      <div class="form-item"><label>KODEX 수량</label><input type="number" id="inp-kodex-sh" placeholder="42" oninput="updatePreview()"></div>
+      <div class="form-item"><label>KODEX 주가</label><input type="number" id="inp-kodex-p" placeholder="16865" oninput="updatePreview()"></div>
       <div class="form-item"><label>이번 달 배당금</label><input type="number" id="inp-div" placeholder="39295" oninput="updatePreview()"></div>
-      <div class="form-item"><label>주문 건수</label><input type="number" id="inp-orders" placeholder="24" oninput="updatePreview()"></div>
-      <div class="form-item span2"><label>총 평가액</label><input type="number" id="inp-total" placeholder="4883596" oninput="updatePreview()"></div>
+      <div class="form-item"><label>주문 건수</label><input type="number" id="inp-orders" placeholder="31" oninput="updatePreview()"></div>
+      <div class="form-item span2"><label>총 평가액</label><input type="number" id="inp-total" placeholder="5011794" oninput="updatePreview()"></div>
     </div>
     <div class="preview-card" id="preview-card">
       <div style="font-size:9px;color:#4a6080;font-family:'Space Mono',monospace;margin-bottom:8px;">PREVIEW</div>
@@ -182,33 +200,66 @@ textarea.paste-area{width:100%;background:#112035;border:1px solid #182a40;borde
 
 <div id="tab-records" style="display:none">
 
-  <!-- 통계 -->
+  <!-- 전체 통계 -->
 
   <div class="stats-grid">
-    <div class="stat-c"><div class="stat-v" style="color:#00e5ff" id="s-cnt">-</div><div class="stat-l">체크 횟수</div></div>
+    <div class="stat-c"><div class="stat-v" style="color:#fbbf24" id="s-cnt">-</div><div class="stat-l">체크 횟수</div></div>
     <div class="stat-c"><div class="stat-v" style="color:#00e5ff" id="s-plus">-</div><div class="stat-l">PLUS 증가</div></div>
     <div class="stat-c"><div class="stat-v" style="color:#a78bfa" id="s-kodex">-</div><div class="stat-l">KODEX 증가</div></div>
     <div class="stat-c"><div class="stat-v" style="color:#34d399" id="s-div">-</div><div class="stat-l">배당 증가</div></div>
   </div>
 
-  <!-- 종목별 개별 차트 (기록된 종목 수에 따라 자동 생성) -->
+  <!-- 월 선택 -->
 
-  <div id="charts-wrap"></div>
-
-  <!-- 배당/자산 차트 -->
-
-  <div class="chart-row" id="chart-div-row" style="display:none">
-    <div class="chart-box">
-      <div class="chart-title" style="color:#34d399">📈 월 배당</div>
-      <canvas id="chart-div" height="120"></canvas>
-    </div>
+  <div class="sec">월별 보기</div>
+  <div class="month-selector">
+    <div class="month-scroll" id="month-scroll"></div>
   </div>
-  <div class="chart-row" id="chart-tot-row" style="display:none">
-    <div class="chart-box">
-      <div class="chart-title" style="color:#fbbf24">💰 총 자산</div>
-      <canvas id="chart-tot" height="120"></canvas>
+
+  <!-- 월별 상세 카드 (클릭 시 펼쳐짐) -->
+
+  <div class="month-detail" id="month-detail">
+    <div class="md-title" id="md-title">-</div>
+    <div class="md-grid">
+      <div class="md-item">
+        <div class="md-label">PLUS 수량</div>
+        <div class="md-val" style="color:#00e5ff" id="md-plus-sh">-</div>
+        <div class="md-delta" id="md-plus-delta">-</div>
+      </div>
+      <div class="md-item">
+        <div class="md-label">KODEX 수량</div>
+        <div class="md-val" style="color:#a78bfa" id="md-kodex-sh">-</div>
+        <div class="md-delta" id="md-kodex-delta">-</div>
+      </div>
+      <div class="md-item">
+        <div class="md-label">월 배당</div>
+        <div class="md-val" style="color:#34d399" id="md-div">-</div>
+        <div class="md-delta" id="md-div-delta">-</div>
+      </div>
+      <div class="md-item">
+        <div class="md-label">총 자산</div>
+        <div class="md-val" style="color:#fbbf24" id="md-total">-</div>
+        <div class="md-delta" id="md-total-delta">-</div>
+      </div>
     </div>
+    <!-- 월 내 증가량 차트 -->
+    <div style="margin-bottom:10px;">
+      <div style="font-size:9px;color:#4a6080;font-family:'Space Mono',monospace;margin-bottom:8px;letter-spacing:1px;">이 달의 수량 변화</div>
+      <canvas id="md-chart" height="120"></canvas>
+    </div>
+    <button class="close-btn" onclick="closeDetail()">닫기</button>
   </div>
+
+  <!-- 월별 증가량 바 차트 -->
+
+  <div class="sec">월별 증가량</div>
+  <div class="monthly-charts" id="monthly-charts"></div>
+
+  <!-- 전체 기록 로그 -->
+
+  <div class="sec">전체 기록</div>
+  <div id="log-list"></div>
+  <div class="empty-state" id="empty-state" style="display:none">아직 저장된 기록이 없어요.</div>
 
   <!-- 백업 -->
 
@@ -224,10 +275,6 @@ textarea.paste-area{width:100%;background:#112035;border:1px solid #182a40;borde
     <button class="btn-restore" onclick="importText()">텍스트로 복원</button>
     <button class="btn-clr" onclick="clearAll()">전체 기록 삭제</button>
   </div>
-
-  <div class="sec">기록 목록</div>
-  <div id="log-list"></div>
-  <div class="empty-state" id="empty-state" style="display:none">아직 저장된 기록이 없어요.</div>
 </div>
 
 </div>
@@ -236,16 +283,11 @@ textarea.paste-area{width:100%;background:#112035;border:1px solid #182a40;borde
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 
 <script>
-const SKEY = 'invest-logs-v4';
+const SKEY = 'invest-logs-v5';
 let records = [];
-let charts = {}; // 차트 인스턴스 저장
+let charts = {};
 let qsParsed = null;
-
-// 종목 설정 (종목 추가 시 여기에만 추가하면 차트 자동 생성)
-const TICKERS = [
-  { key: 'plusSh',  label: 'PLUS 고배당',  color: '#00e5ff', deltaUpCls: 'ld-plus-up',  dataDnCls: 'ld-plus-dn',  neuCls: 'ld-plus-neu'  },
-  { key: 'kodexSh', label: 'KODEX 타겟위클리', color: '#a78bfa', deltaUpCls: 'ld-kodex-up', dataDnCls: 'ld-kodex-dn', neuCls: 'ld-kodex-neu' },
-];
+let selectedMonth = 'all'; // 선택된 월
 
 document.getElementById('inp-date').value = new Date().toISOString().slice(0,10);
 
@@ -262,23 +304,20 @@ function onQSInput() {
     if (!d.date || !d.plusSh) return;
     qsParsed = d;
     const md = (d.plusSh||0)*156 + (d.kodexSh||0)*244;
-    document.getElementById('qp-date').textContent  = d.date;
-    document.getElementById('qp-plus').textContent  = (d.plusSh||0)+'주 @'+(d.plusP||'-');
-    document.getElementById('qp-kodex').textContent = (d.kodexSh||0)+'주 @'+(d.kodexP||'-');
-    document.getElementById('qp-div').textContent   = (md/10000).toFixed(2)+'만';
+    document.getElementById('qp-date').textContent = d.date;
+    document.getElementById('qp-plus').textContent = (d.plusSh||0)+'주';
+    document.getElementById('qp-kodex').textContent = (d.kodexSh||0)+'주';
+    document.getElementById('qp-div').textContent = (md/10000).toFixed(2)+'만';
     preview.style.display = 'grid'; btn.disabled = false;
   } catch(e) {}
 }
 
 function quickSave() {
   if (!qsParsed) return;
-  const rec = { date:qsParsed.date, total:qsParsed.total||0,
-    plusSh:qsParsed.plusSh||0, plusP:qsParsed.plusP||0,
-    kodexSh:qsParsed.kodexSh||0, kodexP:qsParsed.kodexP||0,
+  const rec = { date:qsParsed.date, total:qsParsed.total||0, plusSh:qsParsed.plusSh||0,
+    plusP:qsParsed.plusP||0, kodexSh:qsParsed.kodexSh||0, kodexP:qsParsed.kodexP||0,
     div:qsParsed.div||0, orders:qsParsed.orders||0 };
-  const idx = records.findIndex(r=>r.date===rec.date);
-  if(idx>=0) records[idx]=rec; else records.push(rec);
-  records.sort((a,b)=>a.date.localeCompare(b.date));
+  upsertRecord(rec);
   persist(); toast('저장 완료! — ' + rec.date);
   document.getElementById('qs-input').value='';
   document.getElementById('qs-preview').style.display='none';
@@ -290,7 +329,7 @@ function switchTab(t) {
   document.getElementById('tab-input').style.display   = t==='input'  ?'block':'none';
   document.getElementById('tab-records').style.display = t==='records'?'block':'none';
   document.querySelectorAll('.tab').forEach((b,i)=>b.classList.toggle('active',['input','records'][i]===t));
-  if(t==='records') renderRecords();
+  if(t==='records') renderAll();
 }
 
 function updatePreview() {
@@ -299,30 +338,33 @@ function updatePreview() {
   const tot=+document.getElementById('inp-total').value||0;
   if(ps||ks){
     document.getElementById('preview-card').classList.add('show');
-    document.getElementById('pv-plus').textContent  = ps?ps+'주':'-';
+    document.getElementById('pv-plus').textContent = ps?ps+'주':'-';
     document.getElementById('pv-kodex').textContent = ks?ks+'주':'-';
-    document.getElementById('pv-div').textContent   = ((ps*156+ks*244)/10000).toFixed(2)+'만';
+    document.getElementById('pv-div').textContent = ((ps*156+ks*244)/10000).toFixed(2)+'만';
     document.getElementById('pv-total').textContent = tot?(tot/10000).toFixed(0)+'만':'-';
   }
 }
 
 function saveRecord() {
-  const rec={date:document.getElementById('inp-date').value,
+  const rec = { date:document.getElementById('inp-date').value,
     total:+document.getElementById('inp-total').value||0,
     plusSh:+document.getElementById('inp-plus-sh').value||0,
     plusP:+document.getElementById('inp-plus-p').value||0,
     kodexSh:+document.getElementById('inp-kodex-sh').value||0,
     kodexP:+document.getElementById('inp-kodex-p').value||0,
     div:+document.getElementById('inp-div').value||0,
-    orders:+document.getElementById('inp-orders').value||0};
+    orders:+document.getElementById('inp-orders').value||0 };
   if(!rec.date||!rec.plusSh){toast('날짜와 PLUS 수량은 필수예요!',true);return;}
-  const idx=records.findIndex(r=>r.date===rec.date);
-  if(idx>=0)records[idx]=rec; else records.push(rec);
-  records.sort((a,b)=>a.date.localeCompare(b.date));
-  persist(); toast('저장 완료!'); clearForm();
+  upsertRecord(rec); persist(); toast('저장 완료!'); clearForm();
 }
 
-function clearForm(){
+function upsertRecord(rec) {
+  const idx=records.findIndex(r=>r.date===rec.date);
+  if(idx>=0) records[idx]=rec; else records.push(rec);
+  records.sort((a,b)=>a.date.localeCompare(b.date));
+}
+
+function clearForm() {
   ['inp-total','inp-plus-sh','inp-plus-p','inp-kodex-sh','inp-kodex-p','inp-div','inp-orders']
     .forEach(id=>document.getElementById(id).value='');
   document.getElementById('inp-date').value=new Date().toISOString().slice(0,10);
@@ -345,88 +387,36 @@ function loadData(){
       {date:'2026-03-19',total:4836170,plusSh:213,plusP:8890,kodexSh:40,kodexP:18025,div:39295,orders:22},
       {date:'2026-03-20',total:4927173,plusSh:214,plusP:9080,kodexSh:41,kodexP:18035,div:39295,orders:24},
       {date:'2026-03-21',total:4883596,plusSh:214,plusP:9080,kodexSh:41,kodexP:18035,div:39295,orders:24},
+      {date:'2026-03-22',total:4883596,plusSh:214,plusP:9080,kodexSh:41,kodexP:18035,div:39295,orders:24},
+      {date:'2026-03-23',total:5011794,plusSh:248,plusP:8640,kodexSh:42,kodexP:16865,div:39295,orders:31},
     ];
     persist();
   }
 }
 
-// ── 차트 렌더 (종목별 개별 차트 자동 생성) ──
-function renderCharts(){
-  if(records.length < 2) return;
-  const labels = records.map(r=>r.date.slice(5));
-  const wrap = document.getElementById('charts-wrap');
-
-  // 기존 차트 제거
-  Object.values(charts).forEach(c=>c.destroy());
-  charts={};
-  wrap.innerHTML='';
-
-  // 종목별 개별 차트 생성
-  TICKERS.forEach(tk=>{
-    const row = document.createElement('div');
-    row.className='chart-row';
-    row.innerHTML=`<div class="chart-box">
-      <div class="chart-title" style="color:${tk.color}">📊 ${tk.label} 수량</div>
-      <canvas id="chart-${tk.key}" height="120"></canvas>
-    </div>`;
-    wrap.appendChild(row);
-
-    const ctx=document.getElementById('chart-'+tk.key).getContext('2d');
-    charts[tk.key]=new Chart(ctx,{
-      type:'line',
-      data:{labels,datasets:[{
-        data:records.map(r=>r[tk.key]||0),
-        borderColor:tk.color,
-        backgroundColor:tk.color+'20',
-        borderWidth:2,
-        pointBackgroundColor:tk.color,
-        pointRadius:4,
-        fill:true,
-        tension:0.4
-      }]},
-      options:{responsive:true,
-        plugins:{legend:{display:false},
-          tooltip:{backgroundColor:'#0c1525',borderColor:tk.color,borderWidth:1,
-            titleColor:'#e2e8f0',bodyColor:tk.color,
-            callbacks:{label:c=>` ${c.parsed.y}주`}}},
-        scales:{x:{grid:{color:'#182a40'},ticks:{color:'#4a6080',font:{size:9}}},
-                y:{grid:{color:'#182a40'},ticks:{color:'#4a6080',font:{size:9}}}}}
-    });
-  });
-
-  // 배당 차트
-  document.getElementById('chart-div-row').style.display='block';
-  if(charts['div']) charts['div'].destroy();
-  const ctxD=document.getElementById('chart-div').getContext('2d');
-  charts['div']=new Chart(ctxD,{type:'line',
-    data:{labels,datasets:[{data:records.map(r=>(r.plusSh*156+r.kodexSh*244)/10000),
-      borderColor:'#34d399',backgroundColor:'rgba(52,211,153,.15)',borderWidth:2,
-      pointBackgroundColor:'#34d399',pointRadius:4,fill:true,tension:0.4}]},
-    options:{responsive:true,plugins:{legend:{display:false},
-      tooltip:{backgroundColor:'#0c1525',borderColor:'#34d399',borderWidth:1,
-        titleColor:'#e2e8f0',bodyColor:'#34d399',callbacks:{label:c=>` ${c.parsed.y.toFixed(2)}만원`}}},
-      scales:{x:{grid:{color:'#182a40'},ticks:{color:'#4a6080',font:{size:9}}},
-              y:{grid:{color:'#182a40'},ticks:{color:'#4a6080',font:{size:9}}}}}
-  });
-
-  // 총자산 차트
-  document.getElementById('chart-tot-row').style.display='block';
-  if(charts['tot']) charts['tot'].destroy();
-  const ctxT=document.getElementById('chart-tot').getContext('2d');
-  charts['tot']=new Chart(ctxT,{type:'line',
-    data:{labels,datasets:[{data:records.map(r=>r.total/10000),
-      borderColor:'#fbbf24',backgroundColor:'rgba(251,191,36,.15)',borderWidth:2,
-      pointBackgroundColor:'#fbbf24',pointRadius:4,fill:true,tension:0.4}]},
-    options:{responsive:true,plugins:{legend:{display:false},
-      tooltip:{backgroundColor:'#0c1525',borderColor:'#fbbf24',borderWidth:1,
-        titleColor:'#e2e8f0',bodyColor:'#fbbf24',callbacks:{label:c=>` ${c.parsed.y.toFixed(0)}만원`}}},
-      scales:{x:{grid:{color:'#182a40'},ticks:{color:'#4a6080',font:{size:9}}},
-              y:{grid:{color:'#182a40'},ticks:{color:'#4a6080',font:{size:9}}}}}
-  });
+// ── 월 목록 추출 ──
+function getMonths() {
+  const months = [...new Set(records.map(r=>r.date.slice(0,7)))].sort();
+  return months;
 }
 
-// ── 기록 렌더 ──
-function renderRecords(){
+// ── 월별 첫/마지막 레코드 ──
+function getMonthRecords(ym) {
+  return records.filter(r=>r.date.startsWith(ym));
+}
+
+function getMonthSummary(ym) {
+  const recs = getMonthRecords(ym);
+  if(!recs.length) return null;
+  const first = recs[0], last = recs[recs.length-1];
+  // 이전 달 마지막 레코드
+  const allBefore = records.filter(r=>r.date < first.date);
+  const prev = allBefore.length ? allBefore[allBefore.length-1] : null;
+  return { ym, first, last, prev, recs };
+}
+
+// ── 전체 렌더 ──
+function renderAll() {
   const n=records.length;
   document.getElementById('s-cnt').textContent=n+'회';
   if(n>=2){
@@ -435,38 +425,202 @@ function renderRecords(){
     document.getElementById('s-kodex').textContent='+'+(l.kodexSh-f.kodexSh)+'주';
     const dd=(l.plusSh*156+l.kodexSh*244)-(f.plusSh*156+f.kodexSh*244);
     document.getElementById('s-div').textContent='+'+(dd/10000).toFixed(2)+'만';
-    renderCharts();
   }
+  renderMonthSelector();
+  renderMonthlyCharts();
+  renderLogList();
+}
 
-  const list=document.getElementById('log-list');
-  const empty=document.getElementById('empty-state');
-  if(!n){list.innerHTML='';empty.style.display='block';return;}
+// ── 월 선택 버튼 렌더 ──
+function renderMonthSelector() {
+  const months = getMonths();
+  const scroll = document.getElementById('month-scroll');
+  scroll.innerHTML = '';
+
+  // 전체 버튼
+  const allBtn = document.createElement('button');
+  allBtn.className = 'month-btn all-btn' + (selectedMonth==='all'?' active':'');
+  allBtn.textContent = '전체';
+  allBtn.onclick = () => { selectedMonth='all'; closeDetail(); renderMonthSelector(); renderMonthlyCharts(); renderLogList(); };
+  scroll.appendChild(allBtn);
+
+  months.forEach(ym => {
+    const btn = document.createElement('button');
+    btn.className = 'month-btn' + (selectedMonth===ym?' active':'');
+    const [y,m] = ym.split('-');
+    btn.textContent = m+'월';
+    btn.onclick = () => selectMonth(ym);
+    scroll.appendChild(btn);
+  });
+}
+
+function selectMonth(ym) {
+  selectedMonth = ym;
+  renderMonthSelector();
+  renderMonthlyCharts();
+  renderLogList();
+  showMonthDetail(ym);
+}
+
+// ── 월별 상세 카드 ──
+function showMonthDetail(ym) {
+  const s = getMonthSummary(ym);
+  if(!s) return;
+  const [y,m] = ym.split('-');
+  document.getElementById('md-title').textContent = y+'년 '+m+'월 상세';
+
+  const curDiv = s.last.plusSh*156+s.last.kodexSh*244;
+  const prevDiv = s.prev ? s.prev.plusSh*156+s.prev.kodexSh*244 : s.first.plusSh*156+s.first.kodexSh*244;
+
+  // PLUS
+  document.getElementById('md-plus-sh').textContent = s.last.plusSh+'주';
+  const dp = s.prev ? s.last.plusSh-s.prev.plusSh : s.last.plusSh-s.first.plusSh;
+  const dEl = document.getElementById('md-plus-delta');
+  dEl.textContent = (s.prev?'전달 대비 ':'월초 대비 ')+(dp>=0?'+':'')+dp+'주';
+  dEl.className = 'md-delta '+(dp>0?'up':dp<0?'dn':'neu');
+
+  // KODEX
+  document.getElementById('md-kodex-sh').textContent = s.last.kodexSh+'주';
+  const dk = s.prev ? s.last.kodexSh-s.prev.kodexSh : s.last.kodexSh-s.first.kodexSh;
+  const dkEl = document.getElementById('md-kodex-delta');
+  dkEl.textContent = (s.prev?'전달 대비 ':'월초 대비 ')+(dk>=0?'+':'')+dk+'주';
+  dkEl.className = 'md-delta '+(dk>0?'up':dk<0?'dn':'neu');
+
+  // 배당
+  document.getElementById('md-div').textContent = (curDiv/10000).toFixed(2)+'만';
+  const dd = curDiv-prevDiv;
+  const ddEl = document.getElementById('md-div-delta');
+  ddEl.textContent = (s.prev?'전달 대비 ':'')+(dd>=0?'+':'')+(dd/10000).toFixed(2)+'만';
+  ddEl.className = 'md-delta '+(dd>0?'up':dd<0?'dn':'neu');
+
+  // 자산
+  document.getElementById('md-total').textContent = (s.last.total/10000).toFixed(0)+'만';
+  const dt = s.prev ? s.last.total-s.prev.total : s.last.total-s.first.total;
+  const dtEl = document.getElementById('md-total-delta');
+  dtEl.textContent = (s.prev?'전달 대비 ':'')+(dt>=0?'+':'')+(dt/10000).toFixed(0)+'만';
+  dtEl.className = 'md-delta '+(dt>0?'up':dt<0?'dn':'neu');
+
+  // 이 달 내 차트
+  if(charts['md-chart']) charts['md-chart'].destroy();
+  const labels = s.recs.map(r=>r.date.slice(5));
+  const ctx = document.getElementById('md-chart').getContext('2d');
+  charts['md-chart'] = new Chart(ctx, {
+    type:'line',
+    data:{labels, datasets:[
+      {label:'PLUS',data:s.recs.map(r=>r.plusSh),borderColor:'#00e5ff',backgroundColor:'rgba(0,229,255,.1)',borderWidth:2,pointRadius:3,fill:false,tension:0.4},
+      {label:'KODEX',data:s.recs.map(r=>r.kodexSh),borderColor:'#a78bfa',backgroundColor:'rgba(167,139,250,.1)',borderWidth:2,pointRadius:3,fill:false,tension:0.4,yAxisID:'y2'}
+    ]},
+    options:{responsive:true,
+      plugins:{legend:{display:true,labels:{color:'#e2e8f0',font:{size:10},boxWidth:12}},
+        tooltip:{backgroundColor:'#0c1525',titleColor:'#e2e8f0',bodyColor:'#e2e8f0'}},
+      scales:{
+        x:{grid:{color:'#182a40'},ticks:{color:'#4a6080',font:{size:9}}},
+        y:{grid:{color:'#182a40'},ticks:{color:'#00e5ff',font:{size:9}},position:'left'},
+        y2:{grid:{display:false},ticks:{color:'#a78bfa',font:{size:9}},position:'right'}
+      }}
+  });
+
+  document.getElementById('month-detail').classList.add('show');
+  document.getElementById('month-detail').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function closeDetail() {
+  document.getElementById('month-detail').classList.remove('show');
+}
+
+// ── 월별 증가량 차트 ──
+function renderMonthlyCharts() {
+  const wrap = document.getElementById('monthly-charts');
+  Object.keys(charts).forEach(k=>{ if(k!=='md-chart'){ try{charts[k].destroy();}catch(e){} }});
+
+  const months = getMonths();
+  if(months.length < 1){ wrap.innerHTML=''; return; }
+
+  // 월별 데이터 계산
+  const monthData = months.map(ym => {
+    const s = getMonthSummary(ym);
+    if(!s) return null;
+    const prevDiv = s.prev ? s.prev.plusSh*156+s.prev.kodexSh*244 : s.first.plusSh*156+s.first.kodexSh*244;
+    const curDiv  = s.last.plusSh*156+s.last.kodexSh*244;
+    return {
+      ym,
+      label: ym.slice(5)+'월',
+      plusGain:  s.prev ? s.last.plusSh-s.prev.plusSh  : s.last.plusSh-s.first.plusSh,
+      kodexGain: s.prev ? s.last.kodexSh-s.prev.kodexSh : s.last.kodexSh-s.first.kodexSh,
+      divGain:   (curDiv-prevDiv)/10000,
+    };
+  }).filter(Boolean);
+
+  const labels = monthData.map(d=>d.label);
+  wrap.innerHTML = '';
+
+  // 차트 1: PLUS/KODEX 수량 증가
+  const row1 = document.createElement('div');
+  row1.className = 'chart-box';
+  row1.innerHTML = `<div class="chart-title" style="color:#e2e8f0">📦 종목별 수량 증가 (월별)</div><canvas id="mc-shares" height="140"></canvas>`;
+  wrap.appendChild(row1);
+  charts['mc-shares'] = new Chart(document.getElementById('mc-shares').getContext('2d'), {
+    type:'bar',
+    data:{labels, datasets:[
+      {label:'PLUS',data:monthData.map(d=>d.plusGain),backgroundColor:'rgba(0,229,255,.7)',borderColor:'#00e5ff',borderWidth:1,borderRadius:4},
+      {label:'KODEX',data:monthData.map(d=>d.kodexGain),backgroundColor:'rgba(167,139,250,.7)',borderColor:'#a78bfa',borderWidth:1,borderRadius:4}
+    ]},
+    options:{responsive:true,
+      plugins:{legend:{display:true,labels:{color:'#e2e8f0',font:{size:10},boxWidth:12}},
+        tooltip:{backgroundColor:'#0c1525',titleColor:'#e2e8f0',bodyColor:'#e2e8f0',callbacks:{label:c=>` ${c.dataset.label} +${c.parsed.y}주`}}},
+      scales:{x:{grid:{color:'#182a40'},ticks:{color:'#4a6080',font:{size:10}}},
+              y:{grid:{color:'#182a40'},ticks:{color:'#4a6080',font:{size:9}}}}}
+  });
+
+  // 차트 2: 배당 증가액
+  const row2 = document.createElement('div');
+  row2.className = 'chart-box';
+  row2.innerHTML = `<div class="chart-title" style="color:#34d399">📈 월 배당 증가액 (월별)</div><canvas id="mc-div" height="120"></canvas>`;
+  wrap.appendChild(row2);
+  charts['mc-div'] = new Chart(document.getElementById('mc-div').getContext('2d'), {
+    type:'bar',
+    data:{labels, datasets:[{
+      label:'배당 증가',
+      data:monthData.map(d=>+d.divGain.toFixed(2)),
+      backgroundColor:'rgba(52,211,153,.7)',borderColor:'#34d399',borderWidth:1,borderRadius:4
+    }]},
+    options:{responsive:true,
+      plugins:{legend:{display:false},
+        tooltip:{backgroundColor:'#0c1525',borderColor:'#34d399',borderWidth:1,titleColor:'#e2e8f0',bodyColor:'#34d399',callbacks:{label:c=>` +${c.parsed.y.toFixed(2)}만원`}}},
+      scales:{x:{grid:{color:'#182a40'},ticks:{color:'#4a6080',font:{size:10}}},
+              y:{grid:{color:'#182a40'},ticks:{color:'#4a6080',font:{size:9}}}}}
+  });
+}
+
+// ── 로그 리스트 ──
+function renderLogList() {
+  const list = document.getElementById('log-list');
+  const empty = document.getElementById('empty-state');
+  let filtered = selectedMonth==='all' ? records : records.filter(r=>r.date.startsWith(selectedMonth));
+  if(!filtered.length){list.innerHTML='';empty.style.display='block';return;}
   empty.style.display='none';
-  const sorted=[...records].reverse();
+  const sorted=[...filtered].reverse();
   list.innerHTML=sorted.map((r,i)=>{
-    const prev=sorted[i+1];
+    const globalIdx = records.indexOf(r);
+    const prev = globalIdx>0 ? records[globalIdx-1] : null;
     const md=r.plusSh*156+r.kodexSh*244;
+    const isLatest = records.indexOf(r)===records.length-1;
     let delta='';
     if(prev){
       const dp=r.plusSh-prev.plusSh, dk=r.kodexSh-prev.kodexSh;
       const dd=md-(prev.plusSh*156+prev.kodexSh*244), dt=r.total-prev.total;
-      // PLUS 수량: 하늘색(보유색과 동일), KODEX: 보라색(보유색과 동일)
-      const pCls = dp>0?'ld-plus-up':dp<0?'ld-plus-dn':'ld-plus-neu';
-      const kCls = dk>0?'ld-kodex-up':dk<0?'ld-kodex-dn':'ld-kodex-neu';
-      const dCls = dd>0?'ld-div-up':dd<0?'ld-div-dn':'ld-div-neu';
-      const tCls = dt>0?'ld-tot-up':dt<0?'ld-tot-dn':'ld-tot-neu';
       delta=`<div class="log-delta">
-        <span class="ld ${pCls}">PLUS ${dp>=0?'+':''}${dp}주</span>
-        <span class="ld ${kCls}">KODEX ${dk>=0?'+':''}${dk}주</span>
-        <span class="ld ${dCls}">배당 ${dd>=0?'+':''}${(dd/10000).toFixed(2)}만</span>
-        <span class="ld ${tCls}">자산 ${dt>=0?'+':''}${(dt/10000).toFixed(0)}만</span>
+        <span class="ld ${dp>0?'ld-plus-up':dp<0?'ld-plus-dn':'ld-plus-neu'}">PLUS ${dp>=0?'+':''}${dp}주</span>
+        <span class="ld ${dk>0?'ld-kodex-up':dk<0?'ld-kodex-dn':'ld-kodex-neu'}">KODEX ${dk>=0?'+':''}${dk}주</span>
+        <span class="ld ${dd>0?'ld-div-up':dd<0?'ld-div-dn':'ld-div-neu'}">배당 ${dd>=0?'+':''}${(dd/10000).toFixed(2)}만</span>
+        <span class="ld ${dt>0?'ld-tot-up':dt<0?'ld-tot-dn':'ld-tot-neu'}">자산 ${dt>=0?'+':''}${(dt/10000).toFixed(0)}만</span>
       </div>`;
     }
-    return `<div class="log-item ${i===0?'latest':''}">
+    return `<div class="log-item ${isLatest?'latest':''}">
       <button class="log-del" onclick="delRec('${r.date}')">✕</button>
       <div class="log-top">
         <span class="log-date">${r.date}</span>
-        ${i===0?'<span class="log-badge">LATEST</span>':''}
+        ${isLatest?'<span class="log-badge">LATEST</span>':''}
       </div>
       <div class="log-nums">
         <div><div class="ln-l">PLUS</div><div class="ln-v" style="color:#00e5ff">${r.plusSh}주</div></div>
@@ -480,40 +634,16 @@ function renderRecords(){
   }).join('');
 }
 
-function delRec(date){records=records.filter(r=>r.date!==date);persist();renderRecords();}
-function clearAll(){if(!confirm('전체 삭제할까요?'))return;records=[];persist();renderRecords();}
-
+function delRec(date){records=records.filter(r=>r.date!==date);persist();renderAll();}
+function clearAll(){if(!confirm('전체 삭제할까요?'))return;records=[];persist();renderAll();}
 function exportData(){
   const json=JSON.stringify(records,null,2);
-  navigator.clipboard.writeText(json).then(()=>toast('클립보드에 복사됐어요!'))
-    .catch(()=>{document.getElementById('paste-area').value=json;toast('아래 텍스트를 복사하세요');});
+  navigator.clipboard.writeText(json).then(()=>toast('클립보드에 복사됐어요!')).catch(()=>{document.getElementById('paste-area').value=json;toast('아래 텍스트를 복사하세요');});
 }
-function importFile(e){
-  const f=e.target.files[0];if(!f)return;
-  const r=new FileReader();
-  r.onload=ev=>{try{doImport(JSON.parse(ev.target.result));}catch{toast('형식 오류',true);}};
-  r.readAsText(f);
-}
-function importText(){
-  const t=document.getElementById('paste-area').value.trim();
-  if(!t){toast('텍스트를 붙여넣어 주세요',true);return;}
-  try{doImport(JSON.parse(t));document.getElementById('paste-area').value='';}
-  catch{toast('형식 오류',true);}
-}
-function doImport(arr){
-  if(!Array.isArray(arr)){toast('올바른 형식이 아니에요',true);return;}
-  const merged=[...records];
-  for(const r of arr){const i=merged.findIndex(m=>m.date===r.date);if(i>=0)merged[i]=r;else merged.push(r);}
-  merged.sort((a,b)=>a.date.localeCompare(b.date));
-  records=merged;persist();renderRecords();
-  toast(arr.length+'개 기록 복원 완료!');
-}
-
-function toast(msg,isErr=false){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.style.background=isErr?'#fb7185':'#34d399';
-  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400);
-}
+function importFile(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{try{doImport(JSON.parse(ev.target.result));}catch{toast('형식 오류',true);}};r.readAsText(f);}
+function importText(){const t=document.getElementById('paste-area').value.trim();if(!t){toast('텍스트를 붙여넣어 주세요',true);return;}try{doImport(JSON.parse(t));document.getElementById('paste-area').value='';}catch{toast('형식 오류',true);}}
+function doImport(arr){if(!Array.isArray(arr)){toast('올바른 형식이 아니에요',true);return;}const merged=[...records];for(const r of arr){const i=merged.findIndex(m=>m.date===r.date);if(i>=0)merged[i]=r;else merged.push(r);}merged.sort((a,b)=>a.date.localeCompare(b.date));records=merged;persist();renderAll();toast(arr.length+'개 기록 복원 완료!');}
+function toast(msg,isErr=false){const t=document.getElementById('toast');t.textContent=msg;t.style.background=isErr?'#fb7185':'#34d399';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400);}
 
 loadData();
 document.getElementById('inp-date').value=new Date().toISOString().slice(0,10);
