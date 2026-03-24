@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-
-<html lang="ko">
+이렇게 변경했어
+<!DOCTYPE html><html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,52 +43,80 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .btn-secondary{width:100%;padding:11px;border-radius:10px;border:1px solid #182a40;cursor:pointer;font-size:12px;font-weight:700;font-family:'Noto Sans KR',sans-serif;background:transparent;color:#4a6080;}
 .quick-save-card{background:linear-gradient(135deg,#0a1f10,#0c1a28);border:1px solid rgba(52,211,153,.3);border-radius:14px;padding:16px;margin-bottom:16px;}
 .qs-label{font-size:10px;color:#34d399;font-family:'Space Mono',monospace;margin-bottom:8px;}
-.qs-textarea{width:100%;background:rgba(0,0,0,.3);border:1px solid rgba(52,211,153,.2);border-radius:8px;padding:10px 12px;color:#e2e8f0;font-size:11px;font-family:'Space Mono',monospace;height:80px;resize:none;outline:none;line-height:1.5;}
+.qs-textarea{width:100%;background:rgba(0,0,0,.3);border:1px solid rgba(52,211,153,.2);border-radius:8px;padding:10px 12px;color:#e2e8f0;font-size:11px;font-family:'Space Mono',monospace;height:60px;resize:none;outline:none;line-height:1.5;}
 .qs-preview{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:8px;padding:10px 12px;margin:8px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
 .qs-preview .qp-l{font-size:9px;color:#4a6080;}
 .qs-preview .qp-v{font-size:13px;font-weight:700;font-family:'Space Mono',monospace;}
 .btn-qs{width:100%;padding:12px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:'Noto Sans KR',sans-serif;margin-top:6px;}
 .btn-qs:not(:disabled){background:linear-gradient(135deg,#065f46,#34d399);color:#000;}
 .btn-qs:disabled{background:#112035;color:#4a6080;cursor:not-allowed;}
+/* 통계 */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px;}
 .stat-c{background:#0c1525;border:1px solid #182a40;border-radius:10px;padding:10px;text-align:center;}
 .stat-v{font-size:14px;font-weight:700;font-family:'Space Mono',monospace;}
 .stat-l{font-size:8px;color:#4a6080;margin-top:2px;}
+/* 월 선택 */
 .month-scroll{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;margin-bottom:16px;}
 .month-scroll::-webkit-scrollbar{display:none;}
 .month-btn{flex-shrink:0;padding:6px 14px;border-radius:20px;border:1px solid #182a40;background:transparent;color:#4a6080;font-size:11px;font-weight:700;cursor:pointer;font-family:'Space Mono',monospace;}
 .month-btn.active{background:rgba(0,229,255,.15);border-color:#00e5ff;color:#00e5ff;}
 .month-btn.all-btn{border-color:#a78bfa;color:#a78bfa;}
-.month-btn.all-btn.active{background:rgba(167,139,250,.2);}
+.month-btn.all-btn.active{background:rgba(167,139,250,.2);}/* ── 전역 달성도 섹션 ── */
 .discharge-section{background:#0c1525;border:1px solid rgba(0,229,255,.2);border-radius:14px;padding:16px;margin-bottom:16px;}
 .ds-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
-.ds-title{font-size:13px;font-weight:700;color:#00e5ff;font-family:'Space Mono',monospace;}
-.ds-date{font-size:10px;color:#4a6080;font-family:'Space Mono',monospace;}
-.month-goal-card{background:#0c1525;border:1px solid rgba(52,211,153,.2);border-radius:14px;padding:16px;margin-bottom:16px;}
+.ds-title{font-size:13px;font-weight:700;color:#00e5ff;font-family:‘Space Mono’,monospace;}
+.ds-date{font-size:10px;color:#4a6080;font-family:‘Space Mono’,monospace;}
+.milestone-row{margin-bottom:14px;}
+.milestone-label{font-size:10px;color:#4a6080;font-family:‘Space Mono’,monospace;margin-bottom:6px;display:flex;justify-content:space-between;}
+.milestone-label span{color:#e2e8f0;}
+.progress-bar-wrap{background:#182a40;border-radius:6px;height:8px;overflow:hidden;margin-bottom:4px;}
+.progress-bar{height:100%;border-radius:6px;transition:width .6s ease;}
+.progress-label{font-size:9px;color:#4a6080;text-align:right;font-family:‘Space Mono’,monospace;}
+.milestone-nums{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
+.mn-item{background:#112035;border-radius:8px;padding:10px;}
+.mn-l{font-size:9px;color:#4a6080;font-family:‘Space Mono’,monospace;margin-bottom:4px;}
+.mn-cur{font-size:16px;font-weight:900;font-family:‘Space Mono’,monospace;}
+.mn-goal{font-size:10px;color:#4a6080;margin-top:2px;}
+.mn-pct{font-size:11px;font-weight:700;margin-top:2px;font-family:‘Space Mono’,monospace;}
+/* ── 월별 달성도 ── */
+.month-goal-card{background:#0c1525;border:1px solid rgba(52,211,153,.2);border-radius:14px;padding:16px;margin-bottom:16px;display:none;}
 .month-goal-card.show{display:block;animation:fadeUp .3s ease;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .mg-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
-.mg-title{font-size:13px;font-weight:700;color:#34d399;font-family:'Space Mono',monospace;}
+.mg-title{font-size:13px;font-weight:700;color:#34d399;font-family:‘Space Mono’,monospace;}
 .mg-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
 .mg-item{background:#112035;border-radius:8px;padding:10px;}
-.mg-l{font-size:9px;color:#4a6080;font-family:'Space Mono',monospace;margin-bottom:4px;}
-.mg-cur{font-size:15px;font-weight:900;font-family:'Space Mono',monospace;}
+.mg-l{font-size:9px;color:#4a6080;font-family:‘Space Mono’,monospace;margin-bottom:4px;}
+.mg-cur{font-size:15px;font-weight:900;font-family:‘Space Mono’,monospace;}
 .mg-goal{font-size:9px;color:#4a6080;margin-top:2px;}
-.mg-pct{font-size:11px;font-weight:700;margin-top:3px;font-family:'Space Mono',monospace;}
+.mg-pct{font-size:11px;font-weight:700;margin-top:3px;font-family:‘Space Mono’,monospace;}
 .mg-bar-wrap{background:#182a40;border-radius:4px;height:5px;overflow:hidden;margin-top:4px;}
 .mg-bar{height:100%;border-radius:4px;transition:width .6s ease;}
+/* 차트 */
 .chart-box{background:#0c1525;border:1px solid #182a40;border-radius:14px;padding:14px;margin-bottom:10px;}
-.chart-title{font-size:11px;font-weight:700;font-family:'Space Mono',monospace;margin-bottom:10px;letter-spacing:1px;}
+.chart-title{font-size:11px;font-weight:700;font-family:‘Space Mono’,monospace;margin-bottom:10px;letter-spacing:1px;}
 canvas{width:100%!important;}
+/* 월별 상세 */
+.month-detail{background:#0c1525;border:1px solid rgba(0,229,255,.2);border-radius:14px;padding:16px;margin-bottom:16px;display:none;}
+.month-detail.show{display:block;animation:fadeUp .3s ease;}
+.md-title{font-size:13px;font-weight:700;color:#00e5ff;font-family:‘Space Mono’,monospace;margin-bottom:14px;}
+.md-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
+.md-item{background:#112035;border-radius:10px;padding:12px;}
+.md-label{font-size:9px;color:#4a6080;letter-spacing:1px;margin-bottom:6px;font-family:‘Space Mono’,monospace;}
+.md-val{font-size:18px;font-weight:900;font-family:‘Space Mono’,monospace;}
+.md-delta{font-size:11px;margin-top:3px;}
+.md-delta.up{color:#34d399;}.md-delta.dn{color:#fb7185;}.md-delta.neu{color:#4a6080;}
+.close-btn{width:100%;padding:9px;border-radius:8px;border:1px solid #182a40;background:transparent;color:#4a6080;font-size:11px;cursor:pointer;font-family:‘Noto Sans KR’,sans-serif;}
+/* 로그 /
 .log-item{background:#0c1525;border:1px solid #182a40;border-radius:12px;padding:14px;margin-bottom:8px;position:relative;}
 .log-item.latest{border-color:rgba(0,229,255,.35);}
 .log-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
-.log-date{font-size:11px;font-family:'Space Mono',monospace;color:#00e5ff;}
+.log-date{font-size:11px;font-family:‘Space Mono’,monospace;color:#00e5ff;}
 .log-badge{font-size:8px;padding:2px 8px;border-radius:4px;background:rgba(0,229,255,.12);color:#00e5ff;font-weight:700;}
 .log-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
 .ln-l{font-size:9px;color:#4a6080;}
-.ln-v{font-size:13px;font-weight:700;font-family:'Space Mono',monospace;}
-.log-detail{font-size:10px;color:#4a6080;margin-top:6px;font-family:'Space Mono',monospace;}
+.ln-v{font-size:13px;font-weight:700;font-family:‘Space Mono’,monospace;}
+.log-detail{font-size:10px;color:#4a6080;margin-top:6px;font-family:‘Space Mono’,monospace;}
 .log-delta{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px;padding-top:7px;border-top:1px solid #182a40;}
 .ld{font-size:10px;}
 .ld-plus-up{color:#00e5ff;}.ld-plus-dn{color:#0ea5e9;}.ld-plus-neu{color:#4a6080;}
@@ -97,18 +124,19 @@ canvas{width:100%!important;}
 .ld-div-up{color:#34d399;}.ld-div-dn{color:#f87171;}.ld-div-neu{color:#4a6080;}
 .ld-tot-up{color:#fbbf24;}.ld-tot-dn{color:#fb7185;}.ld-tot-neu{color:#4a6080;}
 .log-del{position:absolute;top:10px;right:12px;background:transparent;border:none;color:#4a6080;cursor:pointer;font-size:13px;}
+/ 백업 */
 .backup-panel{background:#0c1525;border:1px solid rgba(251,191,36,.2);border-radius:12px;padding:14px;margin-bottom:16px;}
-.backup-title{font-size:9px;color:#fbbf24;font-weight:700;font-family:'Space Mono',monospace;margin-bottom:10px;letter-spacing:2px;}
+.backup-title{font-size:9px;color:#fbbf24;font-weight:700;font-family:‘Space Mono’,monospace;margin-bottom:10px;letter-spacing:2px;}
 .backup-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
-.btn-exp{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);color:#fbbf24;font-size:11px;font-weight:700;padding:9px;border-radius:8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;}
-.btn-imp-lbl{display:block;background:#112035;border:1px solid #182a40;color:#4a6080;font-size:11px;font-weight:700;padding:9px;border-radius:8px;cursor:pointer;text-align:center;font-family:'Noto Sans KR',sans-serif;}
-textarea.paste-area{width:100%;background:#112035;border:1px solid #182a40;border-radius:8px;padding:10px;color:#e2e8f0;font-size:10px;font-family:'Space Mono',monospace;height:56px;resize:none;outline:none;margin-bottom:6px;}
-.btn-restore{width:100%;background:transparent;border:1px solid rgba(251,191,36,.3);color:#fbbf24;font-size:11px;font-weight:700;padding:8px;border-radius:8px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;}
-.btn-clr{width:100%;background:transparent;border:1px solid rgba(251,100,100,.2);color:#fb7185;font-size:11px;padding:9px;border-radius:8px;cursor:pointer;margin-top:8px;font-family:'Noto Sans KR',sans-serif;}
+.btn-exp{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);color:#fbbf24;font-size:11px;font-weight:700;padding:9px;border-radius:8px;cursor:pointer;font-family:‘Noto Sans KR’,sans-serif;}
+.btn-imp-lbl{display:block;background:#112035;border:1px solid #182a40;color:#4a6080;font-size:11px;font-weight:700;padding:9px;border-radius:8px;cursor:pointer;text-align:center;font-family:‘Noto Sans KR’,sans-serif;}
+textarea.paste-area{width:100%;background:#112035;border:1px solid #182a40;border-radius:8px;padding:10px;color:#e2e8f0;font-size:10px;font-family:‘Space Mono’,monospace;height:56px;resize:none;outline:none;margin-bottom:6px;}
+.btn-restore{width:100%;background:transparent;border:1px solid rgba(251,191,36,.3);color:#fbbf24;font-size:11px;font-weight:700;padding:8px;border-radius:8px;cursor:pointer;font-family:‘Noto Sans KR’,sans-serif;}
+.btn-clr{width:100%;background:transparent;border:1px solid rgba(251,100,100,.2);color:#fb7185;font-size:11px;padding:9px;border-radius:8px;cursor:pointer;margin-top:8px;font-family:‘Noto Sans KR’,sans-serif;}
 .empty-state{text-align:center;padding:40px 20px;color:#4a6080;font-size:12px;line-height:2;}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(70px);font-size:12px;font-weight:700;padding:10px 22px;border-radius:20px;opacity:0;transition:.3s;z-index:999;color:#000;white-space:nowrap;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-.no-goal{font-size:11px;color:#4a6080;text-align:center;padding:12px;font-family:'Space Mono',monospace;}
+.no-goal{font-size:11px;color:#4a6080;text-align:center;padding:12px;font-family:‘Space Mono’,monospace;}
 </style>
 </head>
 <body>
@@ -120,39 +148,29 @@ textarea.paste-area{width:100%;background:#112035;border:1px solid #182a40;borde
 <div class="tabs">
   <button class="tab active" onclick="switchTab('input')">✏️ 기록 입력</button>
   <button class="tab" onclick="switchTab('records')">📋 기록 보기</button>
-</div>
-
-<!-- 입력 탭 -->
-
-<div id="tab-input">
+</div><!-- ── 입력 탭 ── --><div id="tab-input">
   <div class="sec">사용법</div>
   <div class="guide-box">
     <div class="guide-step"><div class="guide-num">1</div><div class="guide-txt">Claude 채팅에 <b>스크린샷 + "체크"</b> 전송</div></div>
-    <div class="guide-step"><div class="guide-num">2</div><div class="guide-txt">결과 맨 아래 <b>📋 앱 저장용</b> 코드 블록 전체 복사</div></div>
-    <div class="guide-step"><div class="guide-num">3</div><div class="guide-txt">아래 박스에 <b>붙여넣기</b> → 기록 + 목표 동시 반영!</div></div>
-  </div>
-
-  <div class="sec">⚡ 빠른 저장</div>
+    <div class="guide-step"><div class="guide-num">2</div><div class="guide-txt">결과 맨 아래 <b>SAVE:: 코드</b>와 <b>GOAL:: 코드</b> 복사</div></div>
+    <div class="guide-step"><div class="guide-num">3</div><div class="guide-txt">아래 박스에 <b>붙여넣기</b> → 기록 + 목표 자동 반영!</div></div>
+  </div><div class="sec">⚡ 빠른 저장</div>
   <div class="quick-save-card">
-    <div class="qs-label">📋 SAVE:: + GOAL:: 코드를 여기에 붙여넣기 (두 줄 동시 가능)</div>
-    <textarea id="qs-input" class="qs-textarea" placeholder="SAVE::{...}&#10;GOAL::{...}" oninput="onQSInput()"></textarea>
+    <div class="qs-label">📋 SAVE:: 또는 🎯 GOAL:: 코드를 여기에 붙여넣기</div>
+    <textarea id="qs-input" class="qs-textarea" placeholder='SAVE::{"date":"2026-03-23",...} 또는 GOAL::{"discharge":...}' oninput="onQSInput()"></textarea>
     <div id="qs-preview" class="qs-preview" style="display:none">
       <div><div class="qp-l">날짜</div><div class="qp-v" style="color:#00e5ff" id="qp-date">-</div></div>
       <div><div class="qp-l">PLUS</div><div class="qp-v" style="color:#00e5ff" id="qp-plus">-</div></div>
       <div><div class="qp-l">KODEX</div><div class="qp-v" style="color:#a78bfa" id="qp-kodex">-</div></div>
       <div><div class="qp-l">월배당</div><div class="qp-v" style="color:#34d399" id="qp-div">-</div></div>
     </div>
-    <div id="qs-goal-preview" style="display:none;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.2);border-radius:8px;padding:10px 12px;margin:8px 0;font-size:11px;color:#fbbf24;font-family:'Space Mono',monospace;line-height:1.6;"></div>
+    <div id="qs-goal-preview" style="display:none;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.2);border-radius:8px;padding:10px 12px;margin:8px 0;font-size:11px;color:#fbbf24;font-family:'Space Mono',monospace;"></div>
     <button class="btn-qs" id="btn-qs" onclick="quickSave()" disabled>⚡ 바로 저장</button>
-  </div>
-
-  <div style="display:flex;align-items:center;gap:10px;margin:4px 0 18px;">
+  </div><div style="display:flex;align-items:center;gap:10px;margin:4px 0 18px;">
     <div style="flex:1;height:1px;background:#182a40"></div>
     <span style="font-size:10px;color:#4a6080;font-family:'Space Mono',monospace;">또는 직접 입력</span>
     <div style="flex:1;height:1px;background:#182a40"></div>
-  </div>
-
-  <div class="sec">수동 입력</div>
+  </div><div class="sec">수동 입력</div>
   <div class="form-card">
     <div class="form-grid">
       <div class="form-item span2"><label>날짜</label><input type="date" id="inp-date"></div>
@@ -176,52 +194,41 @@ textarea.paste-area{width:100%;background:#112035;border:1px solid #182a40;borde
     <button class="btn-primary" onclick="saveRecord()">💾 저장하기</button>
     <button class="btn-secondary" onclick="clearForm()">입력 초기화</button>
   </div>
-</div>
-
-<!-- 기록 탭 -->
-
-<div id="tab-records" style="display:none">
+</div><!-- ── 기록 탭 ── --><div id="tab-records" style="display:none">
+  <!-- 전체 통계 -->
   <div class="stats-grid">
     <div class="stat-c"><div class="stat-v" style="color:#fbbf24" id="s-cnt">-</div><div class="stat-l">체크 횟수</div></div>
     <div class="stat-c"><div class="stat-v" style="color:#00e5ff" id="s-plus">-</div><div class="stat-l">PLUS 증가</div></div>
     <div class="stat-c"><div class="stat-v" style="color:#a78bfa" id="s-kodex">-</div><div class="stat-l">KODEX 증가</div></div>
     <div class="stat-c"><div class="stat-v" style="color:#34d399" id="s-div">-</div><div class="stat-l">배당 증가</div></div>
-  </div>
-
-  <div class="sec">월별 보기</div>
-  <div class="month-scroll" id="month-scroll"></div>
-
-  <!-- 전체 섹션 -->
-
-  <div id="section-all">
+  </div><!-- 월 선택 --><div class="sec">월별 보기</div>
+  <div class="month-scroll" id="month-scroll"></div><!-- ── 전체 선택 시: 전역 달성도 ── --><div id="section-all">
     <div class="sec">🎖️ 전역까지 달성도</div>
     <div class="discharge-section" id="discharge-section">
-      <div class="no-goal">체크 후 GOAL:: 코드를 붙여넣으면 달성도가 표시돼요</div>
+      <div class="no-goal">체크 후 🎯 GOAL:: 코드를 붙여넣으면 달성도가 표시돼요</div>
     </div>
+    <!-- 월별 증가량 차트 -->
     <div class="sec">월별 증가량</div>
     <div id="monthly-charts"></div>
+    <!-- 전체 기록 -->
     <div class="sec">전체 기록</div>
     <div id="log-list-all"></div>
     <div class="empty-state" id="empty-all" style="display:none">아직 저장된 기록이 없어요.</div>
-  </div>
-
-  <!-- 월별 섹션 -->
-
-  <div id="section-month" style="display:none">
+  </div><!-- ── 월 선택 시: 월별 달성도 + 기록 ── --><div id="section-month" style="display:none">
     <div class="sec">📅 <span id="month-section-title">-</span> 달성도</div>
     <div class="month-goal-card show" id="month-goal-card">
-      <div class="no-goal">GOAL:: 코드를 붙여넣으면 이 달 목표 달성도가 표시돼요</div>
+      <div class="no-goal">체크 후 🎯 GOAL:: 코드를 붙여넣으면 달성도가 표시돼요</div>
     </div>
+    <!-- 월 내 차트 -->
     <div class="chart-box" id="month-chart-box" style="display:none">
       <div class="chart-title" style="color:#e2e8f0">📊 이 달 수량 변화</div>
       <canvas id="month-inner-chart" height="140"></canvas>
     </div>
+    <!-- 월 기록 -->
     <div class="sec">기록 목록</div>
     <div id="log-list-month"></div>
     <div class="empty-state" id="empty-month" style="display:none">이 달 기록이 없어요.</div>
-  </div>
-
-  <div class="sec">백업 / 복원</div>
+  </div><!-- 백업 --><div class="sec">백업 / 복원</div>
   <div class="backup-panel">
     <div class="backup-title">DATA TRANSFER</div>
     <div class="backup-btns">
@@ -244,23 +251,16 @@ let records = [];
 let goals = null;
 let charts = {};
 let qsParsed = null;
-let selectedMonth = 'all';
-
-document.getElementById(‘inp-date’).value = new Date().toISOString().slice(0,10);
-
-// ── SAVE:: + GOAL:: 동시 파싱 ──
+let selectedMonth = 'all';document.getElementById(‘inp-date’).value = new Date().toISOString().slice(0,10);
 function onQSInput() {
-const raw = document.getElementById(‘qs-input’).value;
+const raw = document.getElementById(‘qs-input’).value.trim();
 const btn = document.getElementById(‘btn-qs’);
 const preview = document.getElementById(‘qs-preview’);
 const goalPrev = document.getElementById(‘qs-goal-preview’);
 qsParsed = null; btn.disabled = true;
 preview.style.display = ‘none’; goalPrev.style.display = ‘none’;
-
 const result = {};
-
-// SAVE:: 파싱 (중괄호 포함 한 줄 전체)
-const saveMatch = raw.match(/SAVE::({[\s\S]*?})\s*(?:\n|$)/);
+const saveMatch = raw.match(/SAVE::({[^\n]+})/);
 if (saveMatch) {
 try {
 const d = JSON.parse(saveMatch[1]);
@@ -275,26 +275,17 @@ preview.style.display = ‘grid’;
 }
 } catch(e) {}
 }
-
-// GOAL:: 파싱
-const goalMatch = raw.match(/GOAL::({[\s\S]*?})\s*(?:\n|$)/);
+const goalMatch = raw.match(/GOAL::({[^\n]+})/);
 if (goalMatch) {
 try {
 const d = JSON.parse(goalMatch[1]);
 if (d.discharge) {
 result.goal = d;
 goalPrev.style.display = ‘block’;
-const ms = d.milestones || [];
-goalPrev.innerHTML =
-‘🎯 목표 확인<br>’ +
-(ms[0] ? ms[0].label+’: PLUS ’+ms[0].plusSh+’주 / 배당 ‘+ms[0].div+‘만<br>’ : ‘’) +
-(ms[1] ? ms[1].label+’: PLUS ’+ms[1].plusSh+’주 / 배당 ’+ms[1].div+‘만<br>’ : ‘’) +
-’전역: PLUS ’+d.discharge.plusSh+’주 / 배당 ’+d.discharge.div+‘만’ +
-(d.monthGoal ? ’<br>이번달 목표: PLUS ’+d.monthGoal.plusSh+’주 / KODEX ’+d.monthGoal.kodexSh+‘주’ : ‘’);
+goalPrev.innerHTML = 🎯 목표 확인 · 전역: PLUS ${d.discharge.plusSh}주 / 배당 ${d.discharge.div}만 · 이번달: PLUS ${d.monthGoal?.plusSh||'-'}주;
 }
 } catch(e) {}
 }
-
 if (result.save || result.goal) {
 qsParsed = result;
 btn.disabled = false;
@@ -303,15 +294,14 @@ else if (result.save) btn.textContent = ‘⚡ 기록 저장’;
 else btn.textContent = ‘🎯 목표 업데이트’;
 }
 }
-
 function quickSave() {
 if (!qsParsed) return;
-const msg = [];
+let msg = [];
 if (qsParsed.save) {
 const d = qsParsed.save;
-upsertRecord({ date:d.date, total:d.total||0, plusSh:d.plusSh||0, plusP:d.plusP||0,
-kodexSh:d.kodexSh||0, kodexP:d.kodexP||0, div:d.div||0, orders:d.orders||0 });
-persist();
+const rec = { date:d.date, total:d.total||0, plusSh:d.plusSh||0, plusP:d.plusP||0,
+kodexSh:d.kodexSh||0, kodexP:d.kodexP||0, div:d.div||0, orders:d.orders||0 };
+upsertRecord(rec); persist();
 msg.push(‘기록 저장 ✅’);
 }
 if (qsParsed.goal) {
@@ -319,71 +309,61 @@ goals = qsParsed.goal;
 localStorage.setItem(GKEY, JSON.stringify(goals));
 msg.push(‘목표 업데이트 🎯’);
 }
-toast(msg.join(’ · ’));
-document.getElementById(‘qs-input’).value = ‘’;
-document.getElementById(‘qs-preview’).style.display = ‘none’;
-document.getElementById(‘qs-goal-preview’).style.display = ‘none’;
-document.getElementById(‘btn-qs’).disabled = true;
-document.getElementById(‘btn-qs’).textContent = ‘⚡ 바로 저장’;
-qsParsed = null;
-if (document.getElementById(‘tab-records’).style.display !== ‘none’) renderAll();
+toast(msg.join(’ · ‘));
+document.getElementById(‘qs-input’).value=’’;
+document.getElementById(‘qs-preview’).style.display=‘none’;
+document.getElementById(‘qs-goal-preview’).style.display=‘none’;
+document.getElementById(‘btn-qs’).disabled=true;
+document.getElementById(‘btn-qs’).textContent=‘⚡ 바로 저장’;
+qsParsed=null;
+if(document.getElementById(‘tab-records’).style.display!==‘none’) renderAll();
 }
-
 function switchTab(t) {
-document.getElementById(‘tab-input’).style.display   = t===‘input’   ? ‘block’:‘none’;
-document.getElementById(‘tab-records’).style.display = t===‘records’ ? ‘block’:‘none’;
+document.getElementById(‘tab-input’).style.display   = t===‘input’  ?‘block’:‘none’;
+document.getElementById(‘tab-records’).style.display = t===‘records’?‘block’:‘none’;
 document.querySelectorAll(’.tab’).forEach((b,i)=>b.classList.toggle(‘active’,[‘input’,‘records’][i]===t));
-if (t===‘records’) renderAll();
+if(t===‘records’) renderAll();
 }
-
 function updatePreview() {
 const ps=+document.getElementById(‘inp-plus-sh’).value||0;
 const ks=+document.getElementById(‘inp-kodex-sh’).value||0;
 const tot=+document.getElementById(‘inp-total’).value||0;
-if (ps||ks) {
+if(ps||ks){
 document.getElementById(‘preview-card’).classList.add(‘show’);
-document.getElementById(‘pv-plus’).textContent  = ps?ps+‘주’:’-’;
-document.getElementById(‘pv-kodex’).textContent = ks?ks+‘주’:’-’;
-document.getElementById(‘pv-div’).textContent   = ((ps*156+ks*244)/10000).toFixed(2)+‘만’;
-document.getElementById(‘pv-total’).textContent = tot?(tot/10000).toFixed(0)+‘만’:’-’;
+document.getElementById(‘pv-plus’).textContent=ps?ps+‘주’:’-’;
+document.getElementById(‘pv-kodex’).textContent=ks?ks+‘주’:’-’;
+document.getElementById(‘pv-div’).textContent=((ps156+ks244)/10000).toFixed(2)+‘만’;
+document.getElementById(‘pv-total’).textContent=tot?(tot/10000).toFixed(0)+‘만’:’-’;
 }
 }
-
 function saveRecord() {
-const rec = {
-date:document.getElementById(‘inp-date’).value,
+const rec={date:document.getElementById(‘inp-date’).value,
 total:+document.getElementById(‘inp-total’).value||0,
 plusSh:+document.getElementById(‘inp-plus-sh’).value||0,
 plusP:+document.getElementById(‘inp-plus-p’).value||0,
 kodexSh:+document.getElementById(‘inp-kodex-sh’).value||0,
 kodexP:+document.getElementById(‘inp-kodex-p’).value||0,
 div:+document.getElementById(‘inp-div’).value||0,
-orders:+document.getElementById(‘inp-orders’).value||0
-};
-if (!rec.date||!rec.plusSh) { toast(‘날짜와 PLUS 수량은 필수예요!’,true); return; }
+orders:+document.getElementById(‘inp-orders’).value||0};
+if(!rec.date||!rec.plusSh){toast(‘날짜와 PLUS 수량은 필수예요!’,true);return;}
 upsertRecord(rec); persist(); toast(‘저장 완료!’); clearForm();
 }
-
-function upsertRecord(rec) {
-const idx = records.findIndex(r=>r.date===rec.date);
-if (idx>=0) records[idx]=rec; else records.push(rec);
+function upsertRecord(rec){
+const idx=records.findIndex(r=>r.date===rec.date);
+if(idx>=0)records[idx]=rec; else records.push(rec);
 records.sort((a,b)=>a.date.localeCompare(b.date));
 }
-
-function clearForm() {
-[‘inp-total’,‘inp-plus-sh’,‘inp-plus-p’,‘inp-kodex-sh’,‘inp-kodex-p’,‘inp-div’,‘inp-orders’]
-.forEach(id=>document.getElementById(id).value=’’);
-document.getElementById(‘inp-date’).value = new Date().toISOString().slice(0,10);
+function clearForm(){
+[‘inp-total’,‘inp-plus-sh’,‘inp-plus-p’,‘inp-kodex-sh’,‘inp-kodex-p’,‘inp-div’,‘inp-orders’].forEach(id=>document.getElementById(id).value=’’);
+document.getElementById(‘inp-date’).value=new Date().toISOString().slice(0,10);
 document.getElementById(‘preview-card’).classList.remove(‘show’);
 }
-
-function persist() { try { localStorage.setItem(SKEY, JSON.stringify(records)); } catch(e) {} }
-
-function loadData() {
-try { const r=localStorage.getItem(SKEY); if(r) records=JSON.parse(r); } catch(e) { records=[]; }
-try { const g=localStorage.getItem(GKEY); if(g) goals=JSON.parse(g); } catch(e) { goals=null; }
-if (records.length===0) {
-records = [
+function persist(){try{localStorage.setItem(SKEY,JSON.stringify(records));}catch(e){}}
+function loadData(){
+try{const r=localStorage.getItem(SKEY);if(r)records=JSON.parse(r);}catch(e){records=[];}
+try{const g=localStorage.getItem(GKEY);if(g)goals=JSON.parse(g);}catch(e){goals=null;}
+if(records.length===0){
+records=[
 {date:‘2026-03-09’,total:4442572,plusSh:200,plusP:8660,kodexSh:36,kodexP:16515,div:28835,orders:9},
 {date:‘2026-03-10’,total:4619025,plusSh:201,plusP:8705,kodexSh:36,kodexP:17500,div:28835,orders:12},
 {date:‘2026-03-11’,total:4636344,plusSh:202,plusP:8810,kodexSh:37,kodexP:17735,div:28835,orders:13},
@@ -400,52 +380,49 @@ records = [
 persist();
 }
 }
-
-// ── 달성도 색상/라벨 ──
-function pctColor(pct, isFuture) {
-if (isFuture) {
-if (pct>=80) return ‘#00e5ff’;
-if (pct>=50) return ‘#a78bfa’;
+function pctColor(pct, isFuture){
+if(isFuture){
+if(pct>=80) return ‘#00e5ff’;
+if(pct>=50) return ‘#a78bfa’;
 return ‘#4a6080’;
 }
-if (pct>=105) return ‘#34d399’;
-if (pct>=95)  return ‘#00e5ff’;
-if (pct>=85)  return ‘#fbbf24’;
+if(pct>=105) return ‘#34d399’;
+if(pct>=95)  return ‘#00e5ff’;
+if(pct>=85)  return ‘#fbbf24’;
 return ‘#fb7185’;
 }
-function pctLabel(pct, isFuture) {
-if (isFuture) return ‘’;
-if (pct>=105) return ‘초과 달성 🚀’;
-if (pct>=95)  return ‘정상 궤도 ✅’;
-if (pct>=85)  return ‘소폭 미달 ⚠️’;
+function pctLabel(pct, isFuture){
+if(isFuture) return ‘’;
+if(pct>=105) return ‘초과 달성 🚀’;
+if(pct>=95)  return ‘정상 궤도 ✅’;
+if(pct>=85)  return ‘소폭 미달 ⚠️’;
 return ‘계획 수정 필요 ❗’;
 }
-
-// ── 전역 달성도 ──
-function renderDischarge() {
+function renderDischarge(){
 const sec = document.getElementById(‘discharge-section’);
 const latest = records.length ? records[records.length-1] : null;
-if (!goals||!latest) { sec.innerHTML=’<div class="no-goal">체크 후 GOAL:: 코드를 붙여넣으면 달성도가 표시돼요</div>’; return; }
+if(!goals || !latest){ sec.innerHTML=’<div class="no-goal">체크 후 🎯 GOAL:: 코드를 붙여넣으면 달성도가 표시돼요</div>’; return; }
 const d = goals.discharge;
-const curDiv = (latest.plusSh*156+latest.kodexSh*244)/10000;
-const plusPct  = Math.round(latest.plusSh/d.plusSh*100);
-const kodexPct = Math.round(latest.kodexSh/d.kodexSh*100);
+const curDiv = (latest.plusSh156+latest.kodexSh244)/10000;
+const plusPct  = Math.round(latest.plusSh/d.plusSh100);
+const kodexPct = Math.round(latest.kodexSh/d.kodexSh100);
 const divPct   = Math.round(curDiv/d.div*100);
-let msHtml = ‘’;
-if (goals.milestones) {
+let milestonesHtml = ‘’;
+if(goals.milestones){
 goals.milestones.forEach(ms=>{
-const pP=Math.round(latest.plusSh/ms.plusSh*100);
-const kP=Math.round(latest.kodexSh/ms.kodexSh*100);
-const dP=Math.round(curDiv/ms.div*100);
-const avg=Math.round((pP+kP+dP)/3);
-msHtml += `<div style="background:#112035;border-radius:10px;padding:12px;margin-bottom:10px;"> <div style="display:flex;justify-content:space-between;margin-bottom:8px;"> <span style="font-size:11px;font-weight:700;color:#e2e8f0;">${ms.label}</span> <span style="font-size:10px;font-family:'Space Mono',monospace;color:#4a6080;">${avg}% 진행</span> </div> <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;"> ${mkMini('PLUS','#00e5ff',latest.plusSh,ms.plusSh,'주',pP,true)} ${mkMini('KODEX','#a78bfa',latest.kodexSh,ms.kodexSh,'주',kP,true)} ${mkMini('배당','#34d399',curDiv.toFixed(1),ms.div,'만',dP,true)} </div> </div>`;
+const pPct=Math.round(latest.plusSh/ms.plusSh100);
+const kPct=Math.round(latest.kodexSh/ms.kodexSh100);
+const dPct=Math.round(curDiv/ms.div*100);
+const avg=Math.round((pPct+kPct+dPct)/3);
+milestonesHtml+= <div style="background:#112035;border-radius:10px;padding:12px;margin-bottom:10px;"> <div style="display:flex;justify-content:space-between;margin-bottom:8px;"> <span style="font-size:11px;font-weight:700;color:#e2e8f0;">${ms.label}</span> <span style="font-size:10px;font-family:'Space Mono',monospace;color:#4a6080;">${avg}% 진행</span> </div> <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;"> ${mkMini('PLUS','#00e5ff',latest.plusSh,ms.plusSh,'주',pPct,true)} ${mkMini('KODEX','#a78bfa',latest.kodexSh,ms.kodexSh,'주',kPct,true)} ${mkMini('배당','#34d399',curDiv.toFixed(1),ms.div,'만',dPct,true)} </div> </div>;
 });
 }
-sec.innerHTML = ` <div class="ds-header"><div class="ds-title">🎖️ 전역 목표</div><div class="ds-date">${d.date}</div></div> ${msHtml} <div style="background:#112035;border-radius:10px;padding:12px;border:1px solid rgba(0,229,255,.15);"> <div style="display:flex;justify-content:space-between;margin-bottom:10px;"> <span style="font-size:12px;font-weight:700;color:#00e5ff;">🏁 전역 최종 목표</span> <span style="font-size:10px;color:#4a6080;font-family:'Space Mono',monospace;">${Math.round((plusPct+kodexPct+divPct)/3)}% 진행</span> </div> <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;"> ${mkMini('PLUS','#00e5ff',latest.plusSh,d.plusSh,'주',plusPct,true)} ${mkMini('KODEX','#a78bfa',latest.kodexSh,d.kodexSh,'주',kodexPct,true)} ${mkMini('배당','#34d399',curDiv.toFixed(1),d.div,'만',divPct,true)} </div> </div>`;
+sec.innerHTML= <div class="ds-header"> <div class="ds-title">🎖️ 전역 목표</div> <div class="ds-date">${d.date}</div> </div> ${milestonesHtml} <div style="background:#112035;border-radius:10px;padding:12px;border:1px solid rgba(0,229,255,.15);"> <div style="display:flex;justify-content:space-between;margin-bottom:10px;"> <span style="font-size:12px;font-weight:700;color:#00e5ff;">🏁 전역 최종 목표</span> <span style="font-size:10px;color:#4a6080;font-family:'Space Mono',monospace;">${Math.round((plusPct+kodexPct+divPct)/3)}% 진행</span> </div> <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;"> ${mkMini('PLUS','#00e5ff',latest.plusSh,d.plusSh,'주',plusPct,true)} ${mkMini('KODEX','#a78bfa',latest.kodexSh,d.kodexSh,'주',kodexPct,true)} ${mkMini('배당','#34d399',curDiv.toFixed(1),d.div,'만',divPct,true)} </div> </div>;
 }
-
-function mkMini(label,color,cur,goal,unit,pct,isFuture) {
-const c=pctColor(pct,isFuture), lbl=pctLabel(pct,isFuture), w=Math.min(pct,100);
+function mkMini(label,color,cur,goal,unit,pct,isFuture){
+const c=pctColor(pct,isFuture);
+const lbl=pctLabel(pct,isFuture);
+const w=Math.min(pct,100);
 return `<div style="background:#0c1525;border-radius:8px;padding:8px;">
 <div style="font-size:8px;color:#4a6080;font-family:'Space Mono',monospace;margin-bottom:4px;">${label}</div>
 <div style="font-size:14px;font-weight:900;font-family:'Space Mono',monospace;color:${color};">${cur}${unit}</div>
@@ -454,189 +431,165 @@ return `<div style="background:#0c1525;border-radius:8px;padding:8px;">
 <div style="width:${w}%;height:100%;background:${c};border-radius:3px;"></div>
 </div>
 <div style="font-size:9px;color:${c};font-family:'Space Mono',monospace;margin-top:2px;">${pct}% ${lbl}</div>
-
-  </div>`;
-}
-
-// ── 월별 달성도 ──
-function renderMonthGoal(ym) {
+</div>`;
+}function renderMonthGoal(ym){
 const card = document.getElementById(‘month-goal-card’);
-const recs = records.filter(r=>r.date.startsWith(ym));
-if (!recs.length) { card.innerHTML=’<div class="no-goal">이 달 기록이 없어요.</div>’; return; }
-const latest = recs[recs.length-1];
-const curDiv = (latest.plusSh*156+latest.kodexSh*244)/10000;
-if (!goals||!goals.monthGoal) { card.innerHTML=’<div class="no-goal">GOAL:: 코드를 붙여넣으면 이 달 목표 달성도가 표시돼요</div>’; return; }
-const mg = goals.monthGoal;
-const pPct=Math.round(latest.plusSh/mg.plusSh*100);
-const kPct=Math.round(latest.kodexSh/mg.kodexSh*100);
-const dPct=Math.round(curDiv/mg.div*100);
-card.innerHTML = ` <div class="mg-header"> <div class="mg-title">📅 ${ym.slice(5)}월 목표</div> <div style="font-size:10px;color:#4a6080;font-family:'Space Mono',monospace;">${mg.ym} 기준</div> </div> <div class="mg-grid"> ${mkMonthItem('PLUS','#00e5ff',latest.plusSh,mg.plusSh,'주',pPct)} ${mkMonthItem('KODEX','#a78bfa',latest.kodexSh,mg.kodexSh,'주',kPct)} ${mkMonthItem('월배당','#34d399',curDiv.toFixed(2),mg.div,'만',dPct)} </div>`;
+const monthRecs = records.filter(r=>r.date.startsWith(ym));
+if(!monthRecs.length){ card.innerHTML=’<div class="no-goal">이 달 기록이 없어요.</div>’; return; }
+const latest = monthRecs[monthRecs.length-1];
+const curDiv = (latest.plusSh156+latest.kodexSh244)/10000;
+if(!goals || !goals.monthGoal || !goals.monthGoal.ym){
+card.innerHTML=’<div class="no-goal">🎯 GOAL:: 코드를 붙여넣으면 이 달 목표 달성도가 표시돼요</div>’;
+return;
 }
-
-function mkMonthItem(label,color,cur,goal,unit,pct) {
-const c=pctColor(pct,false), w=Math.min(pct,100), lbl=pctLabel(pct,false);
+const mg = goals.monthGoal;
+const plusPct  = Math.round(latest.plusSh/mg.plusSh100);
+const kodexPct = Math.round(latest.kodexSh/mg.kodexSh100);
+const divPct   = Math.round(curDiv/mg.div*100);
+card.innerHTML= <div class="mg-header"> <div class="mg-title">📅 ${ym.slice(5)}월 목표</div> <div style="font-size:10px;color:#4a6080;font-family:'Space Mono',monospace;">${mg.ym} 기준</div> </div> <div class="mg-grid"> ${mkMonthItem('PLUS','#00e5ff',latest.plusSh,mg.plusSh,'주',plusPct)} ${mkMonthItem('KODEX','#a78bfa',latest.kodexSh,mg.kodexSh,'주',kodexPct)} ${mkMonthItem('월배당','#34d399',curDiv.toFixed(2),mg.div,'만',divPct)} </div>;
+}
+function mkMonthItem(label,color,cur,goal,unit,pct){
+const c=pctColor(pct,false); const w=Math.min(pct,100);
+const lbl=pctLabel(pct,false);
 return `<div class="mg-item">
 <div class="mg-l">${label}</div>
 <div class="mg-cur" style="color:${color}">${cur}${unit}</div>
 <div class="mg-goal">목표 ${goal}${unit}</div>
 <div class="mg-bar-wrap"><div class="mg-bar" style="width:${w}%;background:${c};"></div></div>
 <div class="mg-pct" style="color:${c}">${pct}% ${lbl}</div>
-
-  </div>`;
-}
-
-// ── 월 선택기 ──
-function getMonths() { return […new Set(records.map(r=>r.date.slice(0,7)))].sort(); }
-
-function renderMonthSelector() {
-const scroll = document.getElementById(‘month-scroll’);
-scroll.innerHTML = ‘’;
-const allBtn = document.createElement(‘button’);
-allBtn.className = ‘month-btn all-btn’+(selectedMonth===‘all’?’ active’:’’);
-allBtn.textContent = ‘전체’;
-allBtn.onclick = ()=>{ selectedMonth=‘all’; renderMonthSelector(); showSection(‘all’); };
+</div>`;
+}function getMonths(){return […new Set(records.map(r=>r.date.slice(0,7)))].sort();}
+function renderMonthSelector(){
+const scroll=document.getElementById(‘month-scroll’);
+scroll.innerHTML=’’;
+const allBtn=document.createElement(‘button’);
+allBtn.className=‘month-btn all-btn’+(selectedMonth===‘all’?’ active’:’’);
+allBtn.textContent=‘전체’;
+allBtn.onclick=()=>{selectedMonth=‘all’;renderMonthSelector();showSection(‘all’);};
 scroll.appendChild(allBtn);
 getMonths().forEach(ym=>{
-const btn = document.createElement(‘button’);
-btn.className = ‘month-btn’+(selectedMonth===ym?’ active’:’’);
-btn.textContent = ym.slice(5)+‘월’;
-btn.onclick = ()=>{ selectedMonth=ym; renderMonthSelector(); showSection(‘month’); renderMonthSection(ym); };
+const btn=document.createElement(‘button’);
+btn.className=‘month-btn’+(selectedMonth===ym?’ active’:’’);
+btn.textContent=ym.slice(5)+‘월’;
+btn.onclick=()=>{selectedMonth=ym;renderMonthSelector();showSection(‘month’);renderMonthSection(ym);};
 scroll.appendChild(btn);
 });
 }
-
-function showSection(which) {
-document.getElementById(‘section-all’).style.display   = which===‘all’   ? ‘block’:‘none’;
-document.getElementById(‘section-month’).style.display = which===‘month’ ? ‘block’:‘none’;
+function showSection(which){
+document.getElementById(‘section-all’).style.display=which===‘all’?‘block’:‘none’;
+document.getElementById(‘section-month’).style.display=which===‘month’?‘block’:‘none’;
 }
-
-function renderMonthSection(ym) {
-document.getElementById(‘month-section-title’).textContent = ym.slice(5)+‘월’;
+function renderMonthSection(ym){
+document.getElementById(‘month-section-title’).textContent=ym.slice(5)+‘월’;
 renderMonthGoal(ym);
 renderMonthInnerChart(ym);
-renderLogList(document.getElementById(‘log-list-month’), document.getElementById(‘empty-month’), ym);
+renderLogList(document.getElementById(‘log-list-month’),document.getElementById(‘empty-month’),ym);
 }
-
-function renderMonthInnerChart(ym) {
-const recs = records.filter(r=>r.date.startsWith(ym));
-const box = document.getElementById(‘month-chart-box’);
-if (recs.length<2) { box.style.display=‘none’; return; }
-box.style.display = ‘block’;
-if (charts[‘month-inner’]) { charts[‘month-inner’].destroy(); }
-charts[‘month-inner’] = new Chart(document.getElementById(‘month-inner-chart’).getContext(‘2d’), {
+function renderMonthInnerChart(ym){
+const recs=records.filter(r=>r.date.startsWith(ym));
+const box=document.getElementById(‘month-chart-box’);
+if(recs.length<2){box.style.display=‘none’;return;}
+box.style.display=‘block’;
+if(charts[‘month-inner’]){charts[‘month-inner’].destroy();}
+const labels=recs.map(r=>r.date.slice(5));
+charts[‘month-inner’]=new Chart(document.getElementById(‘month-inner-chart’).getContext(‘2d’),{
 type:‘line’,
-data:{labels:recs.map(r=>r.date.slice(5)),datasets:[
+data:{labels,datasets:[
 {label:‘PLUS’,data:recs.map(r=>r.plusSh),borderColor:’#00e5ff’,backgroundColor:‘rgba(0,229,255,.1)’,borderWidth:2,pointRadius:3,fill:false,tension:0.4},
 {label:‘KODEX’,data:recs.map(r=>r.kodexSh),borderColor:’#a78bfa’,backgroundColor:‘rgba(167,139,250,.1)’,borderWidth:2,pointRadius:3,fill:false,tension:0.4,yAxisID:‘y2’}
 ]},
-options:{responsive:true,
-plugins:{legend:{display:true,labels:{color:’#e2e8f0’,font:{size:10},boxWidth:12}},tooltip:{backgroundColor:’#0c1525’,titleColor:’#e2e8f0’,bodyColor:’#e2e8f0’}},
-scales:{x:{grid:{color:’#182a40’},ticks:{color:’#4a6080’,font:{size:9}}},
-y:{grid:{color:’#182a40’},ticks:{color:’#00e5ff’,font:{size:9}},position:‘left’},
-y2:{grid:{display:false},ticks:{color:’#a78bfa’,font:{size:9}},position:‘right’}}}
+options:{responsive:true,plugins:{legend:{display:true,labels:{color:’#e2e8f0’,font:{size:10},boxWidth:12}},tooltip:{backgroundColor:’#0c1525’,titleColor:’#e2e8f0’,bodyColor:’#e2e8f0’}},
+scales:{x:{grid:{color:’#182a40’},ticks:{color:’#4a6080’,font:{size:9}}},y:{grid:{color:’#182a40’},ticks:{color:’#00e5ff’,font:{size:9}},position:‘left’},y2:{grid:{display:false},ticks:{color:’#a78bfa’,font:{size:9}},position:‘right’}}}
 });
 }
-
-// ── 월별 증가량 차트 ──
-function renderMonthlyCharts() {
-const wrap = document.getElementById(‘monthly-charts’);
-[‘mc-shares’,‘mc-div’].forEach(k=>{ try{ if(charts[k]) charts[k].destroy(); }catch(e){} });
-const months = getMonths();
-if (!months.length) { wrap.innerHTML=’’; return; }
-const monthData = months.map(ym=>{
-const recs = records.filter(r=>r.date.startsWith(ym));
-if (!recs.length) return null;
-const last = recs[recs.length-1];
-const before = records.filter(r=>r.date<recs[0].date);
-const prev = before.length ? before[before.length-1] : null;
+function renderMonthlyCharts(){
+const wrap=document.getElementById(‘monthly-charts’);
+[‘mc-shares’,‘mc-div’].forEach(k=>{try{if(charts[k])charts[k].destroy();}catch(e){}});
+const months=getMonths();
+if(!months.length){wrap.innerHTML=’’;return;}
+const monthData=months.map(ym=>{
+const recs=records.filter(r=>r.date.startsWith(ym));
+if(!recs.length)return null;
+const last=recs[recs.length-1];
+const allBefore=records.filter(r=>r.date<recs[0].date);
+const prev=allBefore.length?allBefore[allBefore.length-1]:null;
 return {
-label: ym.slice(5)+‘월’,
-plusGain:  prev ? last.plusSh-prev.plusSh   : last.plusSh-recs[0].plusSh,
-kodexGain: prev ? last.kodexSh-prev.kodexSh : last.kodexSh-recs[0].kodexSh,
-divGain:   prev ? (last.plusSh*156+last.kodexSh*244-(prev.plusSh*156+prev.kodexSh*244))/10000 : 0
+label:ym.slice(5)+‘월’,
+plusGain:prev?last.plusSh-prev.plusSh:last.plusSh-recs[0].plusSh,
+kodexGain:prev?last.kodexSh-prev.kodexSh:last.kodexSh-recs[0].kodexSh,
+divGain:prev?(last.plusSh156+last.kodexSh244-(prev.plusSh156+prev.kodexSh244))/10000:0
 };
 }).filter(Boolean);
-wrap.innerHTML = ‘’;
-const r1 = document.createElement(‘div’); r1.className=‘chart-box’;
-r1.innerHTML = ‘<div class="chart-title" style="color:#e2e8f0">📦 종목별 수량 증가 (월별)</div><canvas id="mc-shares" height="140"></canvas>’;
+wrap.innerHTML=’’;
+const r1=document.createElement(‘div’);r1.className=‘chart-box’;
+r1.innerHTML=’<div class="chart-title" style="color:#e2e8f0">📦 종목별 수량 증가 (월별)</div><canvas id="mc-shares" height="140"></canvas>’;
 wrap.appendChild(r1);
-charts[‘mc-shares’] = new Chart(document.getElementById(‘mc-shares’).getContext(‘2d’),{
-type:‘bar’,
+charts[‘mc-shares’]=new Chart(document.getElementById(‘mc-shares’).getContext(‘2d’),{type:‘bar’,
 data:{labels:monthData.map(d=>d.label),datasets:[
 {label:‘PLUS’,data:monthData.map(d=>d.plusGain),backgroundColor:‘rgba(0,229,255,.7)’,borderColor:’#00e5ff’,borderWidth:1,borderRadius:4},
 {label:‘KODEX’,data:monthData.map(d=>d.kodexGain),backgroundColor:‘rgba(167,139,250,.7)’,borderColor:’#a78bfa’,borderWidth:1,borderRadius:4}
 ]},
-options:{responsive:true,plugins:{legend:{display:true,labels:{color:’#e2e8f0’,font:{size:10},boxWidth:12}},tooltip:{backgroundColor:’#0c1525’,titleColor:’#e2e8f0’,bodyColor:’#e2e8f0’,callbacks:{label:c=>` ${c.dataset.label} +${c.parsed.y}주`}}},
+options:{responsive:true,plugins:{legend:{display:true,labels:{color:’#e2e8f0’,font:{size:10},boxWidth:12}},tooltip:{backgroundColor:’#0c1525’,titleColor:’#e2e8f0’,bodyColor:’#e2e8f0’,callbacks:{label:c=> ${c.dataset.label} +${c.parsed.y}주}}},
 scales:{x:{grid:{color:’#182a40’},ticks:{color:’#4a6080’,font:{size:10}}},y:{grid:{color:’#182a40’},ticks:{color:’#4a6080’,font:{size:9}}}}}
 });
-const r2 = document.createElement(‘div’); r2.className=‘chart-box’;
-r2.innerHTML = ‘<div class="chart-title" style="color:#34d399">📈 월 배당 증가액 (월별)</div><canvas id="mc-div" height="120"></canvas>’;
+const r2=document.createElement(‘div’);r2.className=‘chart-box’;
+r2.innerHTML=’<div class="chart-title" style="color:#34d399">📈 월 배당 증가액 (월별)</div><canvas id="mc-div" height="120"></canvas>’;
 wrap.appendChild(r2);
-charts[‘mc-div’] = new Chart(document.getElementById(‘mc-div’).getContext(‘2d’),{
-type:‘bar’,
+charts[‘mc-div’]=new Chart(document.getElementById(‘mc-div’).getContext(‘2d’),{type:‘bar’,
 data:{labels:monthData.map(d=>d.label),datasets:[{label:‘배당 증가’,data:monthData.map(d=>+d.divGain.toFixed(2)),backgroundColor:‘rgba(52,211,153,.7)’,borderColor:’#34d399’,borderWidth:1,borderRadius:4}]},
-options:{responsive:true,plugins:{legend:{display:false},tooltip:{backgroundColor:’#0c1525’,borderColor:’#34d399’,borderWidth:1,titleColor:’#e2e8f0’,bodyColor:’#34d399’,callbacks:{label:c=>` +${c.parsed.y.toFixed(2)}만원`}}},
+options:{responsive:true,plugins:{legend:{display:false},tooltip:{backgroundColor:’#0c1525’,borderColor:’#34d399’,borderWidth:1,titleColor:’#e2e8f0’,bodyColor:’#34d399’,callbacks:{label:c=> +${c.parsed.y.toFixed(2)}만원}}},
 scales:{x:{grid:{color:’#182a40’},ticks:{color:’#4a6080’,font:{size:10}}},y:{grid:{color:’#182a40’},ticks:{color:’#4a6080’,font:{size:9}}}}}
 });
 }
-
-// ── 로그 리스트 ──
-function renderLogList(listEl, emptyEl, filterYm) {
-const filtered = filterYm ? records.filter(r=>r.date.startsWith(filterYm)) : […records];
-if (!filtered.length) { listEl.innerHTML=’’; emptyEl.style.display=‘block’; return; }
-emptyEl.style.display = ‘none’;
-listEl.innerHTML = […filtered].reverse().map(r=>{
-const gi = records.indexOf(r);
-const prev = gi>0 ? records[gi-1] : null;
-const md = r.plusSh*156+r.kodexSh*244;
-const isLatest = gi===records.length-1;
-let delta = ‘’;
-if (prev) {
-const dp=r.plusSh-prev.plusSh, dk=r.kodexSh-prev.kodexSh;
-const dd=md-(prev.plusSh*156+prev.kodexSh*244), dt=r.total-prev.total;
-delta = `<div class="log-delta"> <span class="ld ${dp>0?'ld-plus-up':dp<0?'ld-plus-dn':'ld-plus-neu'}">PLUS ${dp>=0?'+':''}${dp}주</span> <span class="ld ${dk>0?'ld-kodex-up':dk<0?'ld-kodex-dn':'ld-kodex-neu'}">KODEX ${dk>=0?'+':''}${dk}주</span> <span class="ld ${dd>0?'ld-div-up':dd<0?'ld-div-dn':'ld-div-neu'}">배당 ${dd>=0?'+':''}${(dd/10000).toFixed(2)}만</span> <span class="ld ${dt>0?'ld-tot-up':dt<0?'ld-tot-dn':'ld-tot-neu'}">자산 ${dt>=0?'+':''}${(dt/10000).toFixed(0)}만</span> </div>`;
+function renderLogList(listEl,emptyEl,filterYm){
+let filtered=filterYm?records.filter(r=>r.date.startsWith(filterYm)):[…records];
+if(!filtered.length){listEl.innerHTML=’’;emptyEl.style.display=‘block’;return;}
+emptyEl.style.display=‘none’;
+const sorted=[…filtered].reverse();
+listEl.innerHTML=sorted.map(r=>{
+const globalIdx=records.indexOf(r);
+const prev=globalIdx>0?records[globalIdx-1]:null;
+const md=r.plusSh156+r.kodexSh244;
+const isLatest=globalIdx===records.length-1;
+let delta=’’;
+if(prev){
+const dp=r.plusSh-prev.plusSh,dk=r.kodexSh-prev.kodexSh;
+const dd=md-(prev.plusSh156+prev.kodexSh244),dt=r.total-prev.total;
+delta=<div class="log-delta"> <span class="ld ${dp>0?'ld-plus-up':dp<0?'ld-plus-dn':'ld-plus-neu'}">PLUS ${dp>=0?'+':''}${dp}주</span> <span class="ld ${dk>0?'ld-kodex-up':dk<0?'ld-kodex-dn':'ld-kodex-neu'}">KODEX ${dk>=0?'+':''}${dk}주</span> <span class="ld ${dd>0?'ld-div-up':dd<0?'ld-div-dn':'ld-div-neu'}">배당 ${dd>=0?'+':''}${(dd/10000).toFixed(2)}만</span> <span class="ld ${dt>0?'ld-tot-up':dt<0?'ld-tot-dn':'ld-tot-neu'}">자산 ${dt>=0?'+':''}${(dt/10000).toFixed(0)}만</span> </div>;
 }
-return `<div class="log-item ${isLatest?'latest':''}"> <button class="log-del" onclick="delRec('${r.date}')">✕</button> <div class="log-top"><span class="log-date">${r.date}</span>${isLatest?'<span class="log-badge">LATEST</span>':''}</div> <div class="log-nums"> <div><div class="ln-l">PLUS</div><div class="ln-v" style="color:#00e5ff">${r.plusSh}주</div></div> <div><div class="ln-l">KODEX</div><div class="ln-v" style="color:#a78bfa">${r.kodexSh}주</div></div> <div><div class="ln-l">월배당</div><div class="ln-v" style="color:#34d399">${(md/10000).toFixed(2)}만</div></div> <div><div class="ln-l">총자산</div><div class="ln-v" style="color:#fbbf24">${r.total?(r.total/10000).toFixed(0):'-'}만</div></div> </div> <div class="log-detail">@${r.plusP?r.plusP.toLocaleString():'-'} · @${r.kodexP?r.kodexP.toLocaleString():'-'} · 주문 ${r.orders}건</div> ${delta} </div>`;
+return <div class="log-item ${isLatest?'latest':''}"> <button class="log-del" onclick="delRec('${r.date}')">✕</button> <div class="log-top"><span class="log-date">${r.date}</span>${isLatest?'<span class="log-badge">LATEST</span>':''}</div> <div class="log-nums"> <div><div class="ln-l">PLUS</div><div class="ln-v" style="color:#00e5ff">${r.plusSh}주</div></div> <div><div class="ln-l">KODEX</div><div class="ln-v" style="color:#a78bfa">${r.kodexSh}주</div></div> <div><div class="ln-l">월배당</div><div class="ln-v" style="color:#34d399">${(md/10000).toFixed(2)}만</div></div> <div><div class="ln-l">총자산</div><div class="ln-v" style="color:#fbbf24">${r.total?(r.total/10000).toFixed(0):'-'}만</div></div> </div> <div class="log-detail">@${r.plusP?r.plusP.toLocaleString():'-'} · @${r.kodexP?r.kodexP.toLocaleString():'-'} · 주문 ${r.orders}건</div> ${delta} </div>;
 }).join(’’);
 }
-
-// ── 전체 렌더 ──
-function renderAll() {
-const n = records.length;
-document.getElementById(‘s-cnt’).textContent = n+‘회’;
-if (n>=2) {
-const f=records[0], l=records[n-1];
-document.getElementById(‘s-plus’).textContent  = ‘+’+(l.plusSh-f.plusSh)+‘주’;
-document.getElementById(‘s-kodex’).textContent = ‘+’+(l.kodexSh-f.kodexSh)+‘주’;
-const dd = (l.plusSh*156+l.kodexSh*244)-(f.plusSh*156+f.kodexSh*244);
-document.getElementById(‘s-div’).textContent   = ‘+’+(dd/10000).toFixed(2)+‘만’;
+function renderAll(){
+const n=records.length;
+document.getElementById(‘s-cnt’).textContent=n+‘회’;
+if(n>=2){
+const f=records[0],l=records[n-1];
+document.getElementById(‘s-plus’).textContent=’+’+(l.plusSh-f.plusSh)+‘주’;
+document.getElementById(‘s-kodex’).textContent=’+’+(l.kodexSh-f.kodexSh)+‘주’;
+const dd=(l.plusSh156+l.kodexSh244)-(f.plusSh156+f.kodexSh244);
+document.getElementById(‘s-div’).textContent=’+’+(dd/10000).toFixed(2)+‘만’;
 }
 renderMonthSelector();
-if (selectedMonth===‘all’) {
+if(selectedMonth===‘all’){
 showSection(‘all’);
 renderDischarge();
 renderMonthlyCharts();
-renderLogList(document.getElementById(‘log-list-all’), document.getElementById(‘empty-all’), null);
+renderLogList(document.getElementById(‘log-list-all’),document.getElementById(‘empty-all’),null);
 } else {
 showSection(‘month’);
 renderMonthSection(selectedMonth);
 }
 }
-
-function delRec(date) { records=records.filter(r=>r.date!==date); persist(); renderAll(); }
-function clearAll() { if(!confirm(‘전체 삭제할까요?’))return; records=[]; persist(); renderAll(); }
-function exportData() {
-const json=JSON.stringify(records,null,2);
-navigator.clipboard.writeText(json).then(()=>toast(‘클립보드에 복사됐어요!’)).catch(()=>{document.getElementById(‘paste-area’).value=json;toast(‘아래 텍스트를 복사하세요’);});
-}
-function importFile(e) { const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{try{doImport(JSON.parse(ev.target.result));}catch{toast(‘형식 오류’,true);}};r.readAsText(f); }
-function importText() { const t=document.getElementById(‘paste-area’).value.trim();if(!t){toast(‘텍스트를 붙여넣어 주세요’,true);return;}try{doImport(JSON.parse(t));document.getElementById(‘paste-area’).value=’’;}catch{toast(‘형식 오류’,true);} }
-function doImport(arr) { if(!Array.isArray(arr)){toast(‘올바른 형식이 아니에요’,true);return;}const merged=[…records];for(const r of arr){const i=merged.findIndex(m=>m.date===r.date);if(i>=0)merged[i]=r;else merged.push(r);}merged.sort((a,b)=>a.date.localeCompare(b.date));records=merged;persist();renderAll();toast(arr.length+‘개 기록 복원 완료!’); }
-function toast(msg,isErr=false) { const t=document.getElementById(‘toast’);t.textContent=msg;t.style.background=isErr?’#fb7185’:’#34d399’;t.classList.add(‘show’);setTimeout(()=>t.classList.remove(‘show’),2400); }
-
+function delRec(date){records=records.filter(r=>r.date!==date);persist();renderAll();}
+function clearAll(){if(!confirm(‘전체 삭제할까요?’))return;records=[];persist();renderAll();}
+function exportData(){const json=JSON.stringify(records,null,2);navigator.clipboard.writeText(json).then(()=>toast(‘클립보드에 복사됐어요!’)).catch(()=>{document.getElementById(‘paste-area’).value=json;toast(‘아래 텍스트를 복사하세요’);});}
+function importFile(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{try{doImport(JSON.parse(ev.target.result));}catch{toast(‘형식 오류’,true);}};r.readAsText(f);}
+function importText(){const t=document.getElementById(‘paste-area’).value.trim();if(!t){toast(‘텍스트를 붙여넣어 주세요’,true);return;}try{doImport(JSON.parse(t));document.getElementById(‘paste-area’).value=’’;}catch{toast(‘형식 오류’,true);}}
+function doImport(arr){if(!Array.isArray(arr)){toast(‘올바른 형식이 아니에요’,true);return;}const merged=[…records];for(const r of arr){const i=merged.findIndex(m=>m.date===r.date);if(i>=0)merged[i]=r;else merged.push(r);}merged.sort((a,b)=>a.date.localeCompare(b.date));records=merged;persist();renderAll();toast(arr.length+‘개 기록 복원 완료!’);}
+function toast(msg,isErr=false){const t=document.getElementById(‘toast’);t.textContent=msg;t.style.background=isErr?’#fb7185’:’#34d399’;t.classList.add(‘show’);setTimeout(()=>t.classList.remove(‘show’),2400);}
 loadData();
-document.getElementById(‘inp-date’).value = new Date().toISOString().slice(0,10);
+document.getElementById(‘inp-date’).value=new Date().toISOString().slice(0,10);
 </script>
-
 </body>
 </html>
